@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1575309376 source:e:\documents\github\trabalho-final-ed\src\main.c
+	<stdio.h>
+	"../include/avl.h"
+	"../include/contador_palavras.h"
+
+1575310031 e:\documents\github\trabalho-final-ed\include\avl.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"contador_palavras.h"
+
+1575310033 e:\documents\github\trabalho-final-ed\include\contador_palavras.h
+

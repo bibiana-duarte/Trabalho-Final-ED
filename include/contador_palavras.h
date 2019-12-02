@@ -7,4 +7,3 @@ struct nodoAVL
     struct nodoAVL *dir;
 };
 
-typedef struct nodoAVL TnodoAVL;

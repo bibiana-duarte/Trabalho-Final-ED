@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "contador_palavras.h"
 
+typedef struct nodoAVL TnodoAVL;
 TnodoAVL *inicializa_AVL();
 int conta_nodos_AVL(TnodoAVL *a);
 int altura(TnodoAVL *a);

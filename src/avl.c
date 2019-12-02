@@ -1,4 +1,4 @@
-#include "avl.h"
+#include "../include/avl.h"
 
 TnodoAVL *inicializa_AVL()
 {
