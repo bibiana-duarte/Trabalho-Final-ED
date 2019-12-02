@@ -1,8 +1,10 @@
-typedef struct nodoAVL
+struct nodoAVL
 {
     char palavra[30];
     int FB;
     int frequencia;
-    struct TnodoAVL *esq;
-    struct TnodoAVL *dir;
-} TnodoAVL;
+    struct nodoAVL *esq;
+    struct nodoAVL *dir;
+};
+
+typedef struct nodoAVL TnodoAVL;
