@@ -23,3 +23,27 @@
 	"../include/avl.h"
 	"../include/abp.h"
 
+1575327334 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
+	"../include/avl.h"
+
+1575323788 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1575328365 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
+	"../include/main.h"
+
+1575322310 c:\users\t-gamer\desktop\trabalho-final-ed\include\main.h
+	<stdio.h>
+	<ctype.h>
+	"../include/avl.h"
+	"../include/abp.h"
+
+1575323788 c:\users\t-gamer\desktop\trabalho-final-ed\include\abp.h
+	<string.h>
+	<stdlib.h>
+
+1575323788 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\abp.c
+	"../include/abp.h"
+

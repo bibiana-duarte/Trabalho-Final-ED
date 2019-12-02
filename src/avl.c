@@ -55,7 +55,7 @@ int fator_balanceamento(TnodoAVL *a)
     return maior;
 }
 
-/*
+
 void desenha(TnodoAVL *a, int nivel)
 {
     int x;
@@ -64,13 +64,14 @@ void desenha(TnodoAVL *a, int nivel)
     {
         for (x=1; x<=nivel; x++)
             printf("=");
-        printf("%s FB= %d\n", a->palavra, calcula_FB(a));
+        puts(a->palavra);
+        printf("FB= %d\n", calcula_fator(a));
         if (a->esq != NULL) desenha(a->esq, (nivel+1));
         if (a->dir != NULL) desenha(a->dir, (nivel+1));
     }
 }
 
-*/
+
 
 TnodoAVL *rotacao_direita(TnodoAVL *n)
 {
