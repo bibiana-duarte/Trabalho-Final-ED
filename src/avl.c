@@ -169,7 +169,7 @@ TnodoAVL *caso2(TnodoAVL *arv, int *ok)
     TnodoAVL *aux;
 
     aux = arv->dir;
-    if (arv->FB == -1)
+    if (aux->FB == -1)
     {
         arv = rotacao_esquerda(arv);
     }

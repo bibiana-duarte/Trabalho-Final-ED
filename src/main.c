@@ -3,7 +3,7 @@
 #define COMPARACOES 0
 #define ROTACOES 0
 
-void main()
+int main()
 {
     FILE *arq_entrada;
     FILE *arq_saida;
@@ -29,10 +29,9 @@ void main()
 
     aux_pal[0] = getc(arq_entrada);
 
-    while (aux_pal[x] = !EOF)
+    while (aux_pal[x] == !EOF)
     {
-
-        while (getc(arq_entrada) != " ")
+        while (getc(arq_entrada) != ' ')
         {
             aux_c = getc(arq_entrada);
             aux_pal[x] = aux_c;
@@ -43,4 +42,5 @@ void main()
     }
 
     fclose(arq_entrada);
+    return 0;
 }
