@@ -2,22 +2,22 @@
 1575315834 source:e:\documents\github\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
 
-1575315631 e:\documents\github\trabalho-final-ed\include\avl.h
+1575323628 e:\documents\github\trabalho-final-ed\include\avl.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 
-1575322029 source:e:\documents\github\trabalho-final-ed\src\main.c
+1575323458 source:e:\documents\github\trabalho-final-ed\src\main.c
 	"../include/main.h"
 
-1575322114 source:e:\documents\github\trabalho-final-ed\src\abp.c
+1575323521 source:e:\documents\github\trabalho-final-ed\src\abp.c
 	"../include/abp.h"
 
-1575322086 e:\documents\github\trabalho-final-ed\include\abp.h
+1575323684 e:\documents\github\trabalho-final-ed\include\abp.h
 	<string.h>
 	<stdlib.h>
 
-1575321837 e:\documents\github\trabalho-final-ed\include\main.h
+1575323440 e:\documents\github\trabalho-final-ed\include\main.h
 	<stdio.h>
 	<ctype.h>
 	"../include/avl.h"

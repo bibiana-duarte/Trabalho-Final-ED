@@ -4,12 +4,11 @@ int main(int argc, char *argv[])
 {
     //char separador[]= {" ,.&*%\?!;/-'@\"$#=><()][}{:\n\t"};
     // char linha[1000];
-    TnodoAVL *arv_AVL = (TnodoAVL *)NULL;
-    TnodoABP *arv_ABP = (TnodoABP *)NULL;
 
     char nome_arq_entrada[MAX_FILENAME_LENGTH];
     char nome_arq_operacoes[MAX_FILENAME_LENGTH];
     char nome_arq_saida[MAX_FILENAME_LENGTH];
+
     if (argc < 3)
     {
         printf("Nome do arquivo com o texto: ");
@@ -26,16 +25,6 @@ int main(int argc, char *argv[])
         strncpy(nome_arq_saida, argv[2], MAX_FILENAME_LENGTH);
     }
 
-    FILE *arq_entrada;
-    FILE *arq_operacoes;
-    FILE *arq_saida;
-    if ((arq_entrada = fopen(nome_arq_entrada, "r")) == NULL)
-        return ERROR;
-    if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
-        return ERROR;
-    if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
-        return ERROR;
-
     /*
 
          while (fgets(linha,1000,arq_entrada))
@@ -50,6 +39,13 @@ int main(int argc, char *argv[])
 
     */
 
+    FILE *arq_entrada;
+    if ((arq_entrada = fopen(nome_arq_entrada, "r")) == NULL)
+        return ERROR;
+
+    TnodoABP *arv_ABP = (TnodoABP *)NULL;
+    TnodoAVL *arv_AVL = (TnodoAVL *)NULL;
+
     while (!feof(arq_entrada)) // Enquanto não ler todo o arquivo
     {
         char linha[MAX_STRING_LENGTH];
@@ -63,10 +59,24 @@ int main(int argc, char *argv[])
 
             int balanceada = 1;
             insere_AVL(arv_AVL, palavra, &balanceada); // Insere a palavra na árvore AVL
+            insere_ABP(arv_ABP, palavra); // Insere a palavra na árvore ABP
 
             palavra = strtok(NULL, " "); // Pega a próxima palavra da linha
         }
     }
+
+    fclose(arq_entrada);
+
+    FILE *arq_operacoes;
+    if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
+        return ERROR;
+
+    FILE *arq_saida;
+    if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
+        return ERROR;
+
+    fclose(arq_operacoes);
+    fclose(arq_saida);
 
 /*
     char palavra[20];
@@ -91,8 +101,5 @@ int main(int argc, char *argv[])
     //nodo->frequencia
 
 */
-    fclose(arq_entrada);
-    fclose(arq_operacoes);
-    fclose(arq_saida);
     return SUCCESS;
 }

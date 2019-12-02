@@ -1,6 +1,6 @@
 #include "../include/abp.h"
 
-TnodoABP *insere_ABP(TnodoABP *a, char palavra)
+TnodoABP *insere_ABP(TnodoABP *a, char palavra[])
 {
     if (a == NULL)
     {
@@ -25,8 +25,8 @@ int altura_ABP(TnodoABP *a)
         return 0;
     else
     {
-        altEsq = altura(a->esq);
-        altDir = altura(a->dir);
+        altEsq = altura_ABP(a->esq);
+        altDir = altura_ABP(a->dir);
         if (altEsq > altDir)
             return (1 + altEsq);
         else

@@ -4,7 +4,7 @@
 
 struct nodoAVL
 {
-    char palavra[30];
+    char palavra[100];
     int FB;
     int frequencia;
     struct nodoAVL *esq;
