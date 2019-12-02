@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "contador_palavras.h"
+#include "avl.h"
 
 TnodoAVL *inicializa_AVL()
 {
