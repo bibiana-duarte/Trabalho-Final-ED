@@ -1,16 +1,25 @@
 # depslib dependency file v1.0
-1575310887 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
+1575323785 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
 
-1575310348 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
+1575323788 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 
-1575319825 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\abp.c
+1575323788 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\abp.c
 	"../include/abp.h"
 
-1575316662 c:\users\t-gamer\desktop\trabalho-final-ed\include\abp.h
+1575323788 c:\users\t-gamer\desktop\trabalho-final-ed\include\abp.h
 	<string.h>
 	<stdlib.h>
+
+1575323834 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
+	"../include/main.h"
+
+1575322310 c:\users\t-gamer\desktop\trabalho-final-ed\include\main.h
+	<stdio.h>
+	<ctype.h>
+	"../include/avl.h"
+	"../include/abp.h"
 

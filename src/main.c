@@ -46,6 +46,8 @@ int main(int argc, char *argv[])
     TnodoABP *arv_ABP = (TnodoABP *)NULL;
     TnodoAVL *arv_AVL = (TnodoAVL *)NULL;
 
+int letra;
+
     while (!feof(arq_entrada)) // Enquanto não ler todo o arquivo
     {
         char linha[MAX_STRING_LENGTH];
@@ -54,7 +56,7 @@ int main(int argc, char *argv[])
         char *palavra = strtok(linha, " "); // Pega a primeira palavra da linha
         while (palavra != NULL) // Enquanto for possível pegar novas palavras válidas da linha
         {
-            for (int letra = 0; letra < strlen(palavra); letra++) // Torna minúscula a palavra
+            for (letra = 0; letra < strlen(palavra); letra++) // Torna minúscula a palavra
                 palavra[letra] = tolower(palavra[letra]);
 
             int balanceada = 1;
