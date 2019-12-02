@@ -3,20 +3,18 @@
 #include <stdlib.h>
 #include "contador_palavras.h"
 
-TnodoAVL* inicializa_AVL()
+TnodoAVL *inicializa_AVL()
 {
     return NULL;
 }
 
-
 int conta_nodos_AVL(TnodoAVL *a)
 {
-    if(a == NULL)
+    if (a == NULL)
         return 0;
     else
         return (1 + conta_nodos_AVL(a->dir) + conta_nodos_AVL(a->esq));
 }
-
 
 int altura(TnodoAVL *a)
 {
@@ -34,33 +32,30 @@ int altura(TnodoAVL *a)
     }
 }
 
-
 int calcula_fator(TnodoAVL *arv)
 {
     return (altura(arv->esq) - altura(arv->dir));
 }
-
 
 int fator_balanceamento(TnodoAVL *a)
 {
     int fb_dir, fb_esq;
     int maior;
 
-    if(a == NULL)
+    if (a == NULL)
         return 0;
 
     fb_dir = fator_balanceamento(a->dir);
     fb_esq = fator_balanceamento(a->esq);
     maior = a->FB;
 
-    if(maior < fb_dir)
+    if (maior < fb_dir)
         maior = fb_dir;
 
-    if(maior < fb_esq)
+    if (maior < fb_esq)
         maior = fb_esq;
 
     return maior;
-
 }
 
 /*
@@ -80,10 +75,9 @@ void desenha(TnodoAVL *a, int nivel)
 
 */
 
-
-TnodoAVL* rotacao_direita(TnodoAVL* n)
+TnodoAVL *rotacao_direita(TnodoAVL *n)
 {
-    TnodoAVL* aux;
+    TnodoAVL *aux;
 
     aux = n->esq;
     n->esq = aux->dir;
@@ -91,15 +85,12 @@ TnodoAVL* rotacao_direita(TnodoAVL* n)
     n->FB = 0;
     n = aux;
 
-
-
     return n;
 }
 
-
-TnodoAVL* rotacao_esquerda(TnodoAVL *n)
+TnodoAVL *rotacao_esquerda(TnodoAVL *n)
 {
-    TnodoAVL* aux;
+    TnodoAVL *aux;
 
     aux = n->dir;
     n->dir = aux->esq;
@@ -107,15 +98,12 @@ TnodoAVL* rotacao_esquerda(TnodoAVL *n)
     n->FB = 0;
     n = aux;
 
-
-
     return aux;
 }
 
-
-TnodoAVL* rotacao_dupla_direita (TnodoAVL* n)
+TnodoAVL *rotacao_dupla_direita(TnodoAVL *n)
 {
-    TnodoAVL* aux1, *aux2;
+    TnodoAVL *aux1, *aux2;
 
     aux1 = n->esq;
     aux2 = aux1->dir;
@@ -134,12 +122,10 @@ TnodoAVL* rotacao_dupla_direita (TnodoAVL* n)
         aux1->FB = 0;
     n = aux2;
 
-
     return n;
 }
 
-
-TnodoAVL* rotacao_dupla_esquerda (TnodoAVL* n)
+TnodoAVL *rotacao_dupla_esquerda(TnodoAVL *n)
 {
     TnodoAVL *aux1, *aux2;
 
@@ -161,8 +147,7 @@ TnodoAVL* rotacao_dupla_esquerda (TnodoAVL* n)
     return n;
 }
 
-
-TnodoAVL* caso1 (TnodoAVL* arv, int *ok)
+TnodoAVL *caso1(TnodoAVL *arv, int *ok)
 {
     TnodoAVL *aux;
 
@@ -182,7 +167,7 @@ TnodoAVL* caso1 (TnodoAVL* arv, int *ok)
     return arv;
 }
 
-TnodoAVL* caso2 (TnodoAVL *arv, int *ok)
+TnodoAVL *caso2(TnodoAVL *arv, int *ok)
 {
     TnodoAVL *aux;
 
@@ -201,20 +186,19 @@ TnodoAVL* caso2 (TnodoAVL *arv, int *ok)
     return arv;
 }
 
-
-TnodoAVL* insere_AVL(TnodoAVL *a, char palavra[], int *ok)
+TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok)
 {
 
-    if (a == NULL)   //Chegou no fim da árvore, insere o nodo
+    if (a == NULL) //Chegou no fim da ï¿½rvore, insere o nodo
     {
-        a = (TnodoAVL*) malloc(sizeof(TnodoAVL));
-        strcpy(a->palavra,palavra);
+        a = (TnodoAVL *)malloc(sizeof(TnodoAVL));
+        strcpy(a->palavra, palavra);
         a->esq = NULL;
         a->dir = NULL;
         a->FB = 0;
         *ok = 1;
     }
-    else if ( (strcmp(palavra,a->palavra)) < 0)
+    else if ((strcmp(palavra, a->palavra)) < 0)
     {
         a->esq = insere_AVL(a->esq, palavra, ok);
         if (*ok)
@@ -225,31 +209,31 @@ TnodoAVL* insere_AVL(TnodoAVL *a, char palavra[], int *ok)
                 a->FB = 0;
                 *ok = 0;
                 break;
-            case  0:
+            case 0:
                 a->FB = 1;
                 break;
-            case  1:
-                a = caso1(a,ok);
+            case 1:
+                a = caso1(a, ok);
                 break;
             }
         }
     }
-    else if ( strcmp(palavra,a->palavra) > 0)
+    else if (strcmp(palavra, a->palavra) > 0)
     {
-        a->dir = insere_AVL(a->dir,palavra,ok);
+        a->dir = insere_AVL(a->dir, palavra, ok);
         if (*ok)
         {
             switch (a->FB)
             {
-            case  1:
+            case 1:
                 a->FB = 0;
                 *ok = 0;
                 break;
-            case  0:
+            case 0:
                 a->FB = -1;
                 break;
             case -1:
-                a = caso2(a,ok);
+                a = caso2(a, ok);
                 break;
             }
         }
@@ -263,8 +247,6 @@ TnodoAVL* insere_AVL(TnodoAVL *a, char palavra[], int *ok)
     return a;
 }
 
-
-
 /*
 nodoAVL* consulta_AVL(nodoAVL *a, char palavra[] )
 {
@@ -274,7 +256,7 @@ nodoAVL* consulta_AVL(nodoAVL *a, char palavra[] )
 
         if (a->palavra == palavra )
         {
-            return a;     //achou então retorna o ponteiro para o nodo
+            return a;     //achou entï¿½o retorna o ponteiro para o nodo
         }
 
         if (a->palavra > chave)
@@ -282,5 +264,5 @@ nodoAVL* consulta_AVL(nodoAVL *a, char palavra[] )
         else
             a = a->dir;
     }
-    return NULL; //se não achou
+    return NULL; //se nï¿½o achou
 } */
