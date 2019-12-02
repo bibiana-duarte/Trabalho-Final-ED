@@ -55,6 +55,7 @@ TnodoABP *consulta_ABP(TnodoABP *a, char palavra[])
         if ((strcmp(a->palavra,palavra)) == 0 )
 
         {
+            (a->frequencia)++;
             return a; //achou ent�o retorna o ponteiro para o nodo
         }
 

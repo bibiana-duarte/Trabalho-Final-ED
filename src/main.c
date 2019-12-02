@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
 {
     //char separador[]= {" ,.&*%\?!;/-'@\"$#=><()][}{:\n\t"};
     // char linha[1000];
-    TnodoAVL *arv;
-    arv = inicializa_AVL();
+    TnodoABP *arv,*c;
+    arv = NULL;
 
     FILE *arq_entrada;
     FILE *arq_operacoes;
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     {
         printf("Nome do arquivo com o texto: ");
         gets(nome_arq_entrada);
-        printf("Nome do arquivo de saida: ");
+        printf("Nome do arquivo de operacoes: ");
         gets(nome_arq_operacoes);
         printf("Nome do arquivo de saida: ");
         gets(nome_arq_saida);
@@ -65,6 +65,7 @@ int main(int argc, char *argv[])
     {
         while (getc(arq_entrada) != ' ')
         {
+            printf("a");
             aux_c = getc(arq_entrada);
             aux_pal[x] = aux_c;
             x++;
@@ -74,6 +75,29 @@ int main(int argc, char *argv[])
         insere_AVL(arv, aux_pal, &balanceada);
     }
 
+/*
+    char palavra[20];
+    printf("Palavra:");
+    gets(palavra);
+
+    c = consulta_ABP(arv,palavra);
+    printf("FC: %d",c->frequencia);
+*/
+
+/*
+    fgets(linha , 100 ,arq_operacoes)
+    operacao = strtok(linha,' ');
+
+    if(operacao == 'C')
+        inic = strtok (NULL,linha);
+    fim = strtok(NULL, ,linha);
+
+    if(operacao == 'F')
+        palavra = strtok(NULL, linhas);
+    nodo = consulta(xxx, palavra);
+    //nodo->frequencia
+
+*/
     fclose(arq_entrada);
     fclose(arq_operacoes);
     fclose(arq_saida);
