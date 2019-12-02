@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1575314623 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
+	<stdio.h>
+	"../include/avl.h"
+
+1575310348 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1575310887 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
+	"../include/avl.h"
+

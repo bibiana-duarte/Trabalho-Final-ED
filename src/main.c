@@ -8,12 +8,9 @@
 
 int main(int argc, char* argv[])
 {
-    char aux_c;
-    char aux_pal[30];
+     //char separador[]= {" ,.&*%\?!;/-'@\"$#=><()][}{:\n\t"};
+    // char linha[1000];
     TnodoAVL *arv;
-    int x;
-    int balanceada = 1;
-
     arv = inicializa_AVL();
 
     FILE *arq_entrada;
@@ -37,17 +34,35 @@ int main(int argc, char* argv[])
         strncpy(nome_arq_operacoes, argv[1], FILENAME_LENGTH);
         strncpy(nome_arq_saida, argv[2], FILENAME_LENGTH);
     }
-    if (arq_entrada = fopen(nome_arq_entrada, "r") == NULL)
+    if ((arq_entrada = fopen(nome_arq_entrada, "r")) == NULL)
         return ERROR;
-    if (arq_operacoes = fopen(nome_arq_operacoes, "r") == NULL)
+    if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
         return ERROR;
-    if (arq_saida = fopen(nome_arq_saida, "w") == NULL)
+    if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
         return ERROR;
 
+
+
+
+    /*
+
+         while (fgets(linha,1000,arq_entrada))
+                {
+                    palavra = strtok (linha, separador); //considera qquer caractere n�o alfab�tico como separador
+                    while (palavra != NULL)
+                    {
+                        fprintf(saida,"%s ", strlwr(palavra)); //strlwr � a fun��o que converte palavras para min�sculo
+                        palavra = strtok (NULL, separador);
+                    }
+                }
+
+    */
+
+    int x;
     x = 0;
-
+    char aux_pal[30];
     aux_pal[0] = getc(arq_entrada);
-
+    char aux_c;
     while (aux_pal[x] == !EOF)
     {
         while (getc(arq_entrada) != ' ')
@@ -57,6 +72,7 @@ int main(int argc, char* argv[])
             x++;
         }
 
+        int balanceada = 1;
         insere_AVL(arv, aux_pal, &balanceada);
     }
 
