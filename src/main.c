@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include "../include/avl.h"
+#include "../include/abp.h"
 #define COMPARACOES 0
 #define ROTACOES 0
 #define FILENAME_LENGTH 20
 #define SUCCESS 0
 #define ERROR -1
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-     //char separador[]= {" ,.&*%\?!;/-'@\"$#=><()][}{:\n\t"};
+    //char separador[]= {" ,.&*%\?!;/-'@\"$#=><()][}{:\n\t"};
     // char linha[1000];
     TnodoAVL *arv;
     arv = inicializa_AVL();
@@ -40,9 +41,6 @@ int main(int argc, char* argv[])
         return ERROR;
     if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
         return ERROR;
-
-
-
 
     /*
 
@@ -77,7 +75,7 @@ int main(int argc, char* argv[])
     }
 
     fclose(arq_entrada);
-    fclose(nome_arq_operacoes);
-    fclose(nome_arq_saida);
+    fclose(arq_operacoes);
+    fclose(arq_saida);
     return SUCCESS;
 }
