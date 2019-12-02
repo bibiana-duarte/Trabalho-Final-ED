@@ -8,12 +8,14 @@ TnodoABP *insere_ABP(TnodoABP *a, char palavra[])
         strcpy(a->palavra, palavra);
         a->esq = NULL;
         a->dir = NULL;
-        return a;
+        a->frequencia = 1;
     }
     else if (strcmp(palavra, a->palavra) < 0)
         a->esq = insere_ABP(a->esq, palavra);
     else if (strcmp(palavra, a->palavra) > 0)
         a->dir = insere_ABP(a->dir, palavra);
+    else
+        (a->frequencia)++;
     return a;
 }
 
@@ -48,21 +50,16 @@ int conta_nodos_ABP(TnodoABP *a)
 
 TnodoABP *consulta_ABP(TnodoABP *a, char palavra[])
 {
-
     while (a != NULL)
     {
-
-        if ((strcmp(a->palavra,palavra)) == 0 )
-
+        if ((strcmp(a->palavra,palavra)) == 0)
         {
-            (a->frequencia)++;
-            return a; //achou ent�o retorna o ponteiro para o nodo
+            return a; //achou então retorna o ponteiro para o nodo
         }
-
         if (strcmp(a->palavra, palavra) < 0)
             a = a->esq;
         else
             a = a->dir;
     }
-    return NULL; //se n�o achou
+    return NULL; //se não achou
 }

@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1575323714 source:e:\documents\github\trabalho-final-ed\src\abp.c
+1575330656 source:e:\documents\github\trabalho-final-ed\src\abp.c
 	"../include/abp.h"
 
 1575323684 e:\documents\github\trabalho-final-ed\include\abp.h
 	<string.h>
 	<stdlib.h>
 
-1575315834 source:e:\documents\github\trabalho-final-ed\src\avl.c
+1575330685 source:e:\documents\github\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
 
 1575323628 e:\documents\github\trabalho-final-ed\include\avl.h

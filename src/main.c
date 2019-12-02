@@ -29,8 +29,6 @@ int main(int argc, char *argv[])
     TnodoABP *arv_ABP = (TnodoABP *)NULL;
     TnodoAVL *arv_AVL = (TnodoAVL *)NULL;
 
-    int letra;
-
     while (!feof(arq_entrada)) // Enquanto não ler todo o arquivo
     {
         char linha[MAX_STRING_LENGTH];
@@ -39,6 +37,7 @@ int main(int argc, char *argv[])
         char *palavra = strtok(linha, " "); // Pega a primeira palavra da linha
         while (palavra != NULL) // Enquanto for possível pegar novas palavras válidas da linha
         {
+            int letra;
             for (letra = 0; letra < strlen(palavra); letra++) // Torna minúscula a palavra
                 palavra[letra] = tolower(palavra[letra]);
 
@@ -58,7 +57,6 @@ int main(int argc, char *argv[])
     if(arv_ABP == NULL)
         printf("Vazia");
 
-
     TnodoABP *c;
     char p[20];
     puts("Palavra: ");
@@ -66,7 +64,6 @@ int main(int argc, char *argv[])
 
     c = consulta_ABP(arv_ABP,p);
     printf("F: %d",c->frequencia);
-
 
     FILE *arq_operacoes;
     if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
@@ -76,23 +73,23 @@ int main(int argc, char *argv[])
     if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
         return ERROR;
 
-
-    fgets(linha , 1000 ,arq_operacoes)
+    fgets(linha, 1000, arq_operacoes)
     operacao = strtok(linha,' ');
     strtok (NULL,linha);
 
-    if(operacao == 'C'){
+    if(operacao == 'C')
+    {
         inic = strtok (linha,' ');
         strtok(NULL, ,linha);
         fim = inic = strtok (linha,' ');
     }
-
-
-    else{
-        strtok(NULL, linhas);
+    else
+    {
+        strtok(NULL, linha);
         palavra = strtok(linha, ' ');
         nodo = consulta(arv_AVL, palavra);
         //nodo->frequencia
+    }
 
     fclose(arq_operacoes);
     fclose(arq_saida);

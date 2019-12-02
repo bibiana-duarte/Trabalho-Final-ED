@@ -1,10 +1,5 @@
 #include "../include/avl.h"
 
-TnodoAVL *inicializa_AVL()
-{
-    return NULL;
-}
-
 int conta_nodos_AVL(TnodoAVL *a)
 {
     if (a == NULL)
@@ -187,13 +182,14 @@ TnodoAVL *caso2(TnodoAVL *arv, int *ok)
 TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok)
 {
 
-    if (a == NULL) //Chegou no fim da �rvore, insere o nodo
+    if (a == NULL) //Chegou no fim da árvore, insere o nodo
     {
         a = (TnodoAVL *)malloc(sizeof(TnodoAVL));
         strcpy(a->palavra, palavra);
         a->esq = NULL;
         a->dir = NULL;
         a->FB = 0;
+        a->frequencia = 1;
         *ok = 1;
     }
     else if ((strcmp(palavra, a->palavra)) < 0)
@@ -254,7 +250,7 @@ nodoAVL* consulta_AVL(nodoAVL *a, char palavra[] )
 
         if (a->palavra == palavra )
         {
-            return a;     //achou ent�o retorna o ponteiro para o nodo
+            return a;     //achou então retorna o ponteiro para o nodo
         }
 
         if (a->palavra > chave)
@@ -262,5 +258,5 @@ nodoAVL* consulta_AVL(nodoAVL *a, char palavra[] )
         else
             a = a->dir;
     }
-    return NULL; //se n�o achou
+    return NULL; //se não achou
 } */
