@@ -1,11 +1,4 @@
-#include <stdio.h>
-#include "../include/avl.h"
-#include "../include/abp.h"
-#define COMPARACOES 0
-#define ROTACOES 0
-#define FILENAME_LENGTH 20
-#define SUCCESS 0
-#define ERROR -1
+#include "../include/main.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,9 +10,9 @@ int main(int argc, char *argv[])
     FILE *arq_entrada;
     FILE *arq_operacoes;
     FILE *arq_saida;
-    char nome_arq_entrada[FILENAME_LENGTH];
-    char nome_arq_operacoes[FILENAME_LENGTH];
-    char nome_arq_saida[FILENAME_LENGTH];
+    char nome_arq_entrada[MAX_FILENAME_LENGTH];
+    char nome_arq_operacoes[MAX_FILENAME_LENGTH];
+    char nome_arq_saida[MAX_FILENAME_LENGTH];
     if (argc < 3)
     {
         printf("Nome do arquivo com o texto: ");
@@ -31,9 +24,9 @@ int main(int argc, char *argv[])
     }
     else
     {
-        strncpy(nome_arq_entrada, argv[0], FILENAME_LENGTH);
-        strncpy(nome_arq_operacoes, argv[1], FILENAME_LENGTH);
-        strncpy(nome_arq_saida, argv[2], FILENAME_LENGTH);
+        strncpy(nome_arq_entrada, argv[0], MAX_FILENAME_LENGTH);
+        strncpy(nome_arq_operacoes, argv[1], MAX_FILENAME_LENGTH);
+        strncpy(nome_arq_saida, argv[2], MAX_FILENAME_LENGTH);
     }
     if ((arq_entrada = fopen(nome_arq_entrada, "r")) == NULL)
         return ERROR;
@@ -56,23 +49,22 @@ int main(int argc, char *argv[])
 
     */
 
-    int x;
-    x = 0;
-    char aux_pal[30];
-    aux_pal[0] = getc(arq_entrada);
-    char aux_c;
-    while (aux_pal[x] == !EOF)
+    while (!feof(arq_entrada)) // Enquanto não ler todo o arquivo
     {
-        while (getc(arq_entrada) != ' ')
-        {
-            printf("a");
-            aux_c = getc(arq_entrada);
-            aux_pal[x] = aux_c;
-            x++;
-        }
+        char linha[MAX_STRING_LENGTH];
+        fgets(linha, MAX_STRING_LENGTH, arq_entrada); // Lê uma linha do arquivo
 
-        int balanceada = 1;
-        insere_AVL(arv, aux_pal, &balanceada);
+        char palavra[MAX_STRING_LENGTH] = strtok(frase, " "); // Pega a primeira palavra da linha
+        while (palavra != NULL) // Enquanto for possível pegar novas palavras válidas da linha
+        {
+            for (int letra = 0; letra < strlen(palavra); letra++) // Torna minúscula a palavra
+                palavra[letra] = tolower(palavra[letra]);
+
+            int balanceada = 1;
+            insere_AVL(arv, palavra, &balanceada); // Insere a palavra na árvore AVL
+
+            palavra = strtok(NULL, " "); // Pega a próxima palavra da linha
+        }
     }
 
 /*
