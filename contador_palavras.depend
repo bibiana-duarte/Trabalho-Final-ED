@@ -4,11 +4,13 @@
 	"../include/avl.h"
 	"../include/contador_palavras.h"
 
-1575310031 e:\documents\github\trabalho-final-ed\include\avl.h
+1575310280 e:\documents\github\trabalho-final-ed\include\avl.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
-	"contador_palavras.h"
 
-1575310033 e:\documents\github\trabalho-final-ed\include\contador_palavras.h
+1575310256 e:\documents\github\trabalho-final-ed\include\contador_palavras.h
+
+1575310048 source:e:\documents\github\trabalho-final-ed\src\avl.c
+	"../include/avl.h"
 

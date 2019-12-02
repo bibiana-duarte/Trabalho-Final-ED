@@ -1,9 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "contador_palavras.h"
 
+struct nodoAVL
+{
+    char palavra[30];
+    int FB;
+    int frequencia;
+    struct nodoAVL *esq;
+    struct nodoAVL *dir;
+};
 typedef struct nodoAVL TnodoAVL;
+
 TnodoAVL *inicializa_AVL();
 int conta_nodos_AVL(TnodoAVL *a);
 int altura(TnodoAVL *a);
