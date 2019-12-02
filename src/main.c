@@ -37,11 +37,11 @@ int main(int argc, char* argv[])
         strncpy(nome_arq_operacoes, argv[1], FILENAME_LENGTH);
         strncpy(nome_arq_saida, argv[2], FILENAME_LENGTH);
     }
-    if (arq_entrada = fopen(nome_arq_entrada, "r") == NULL)
+    if ((arq_entrada = fopen(nome_arq_entrada, "r")) == NULL)
         return ERROR;
-    if (arq_operacoes = fopen(nome_arq_operacoes, "r") == NULL)
+    if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
         return ERROR;
-    if (arq_saida = fopen(nome_arq_saida, "w") == NULL)
+    if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
         return ERROR;
 
     x = 0;
