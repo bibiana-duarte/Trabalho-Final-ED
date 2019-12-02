@@ -2,9 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-    //char separador[]= {" ,.&*%\?!;/-'@\"$#=><()][}{:\n\t"};
-    // char linha[1000];
-
     char nome_arq_entrada[MAX_FILENAME_LENGTH];
     char nome_arq_operacoes[MAX_FILENAME_LENGTH];
     char nome_arq_saida[MAX_FILENAME_LENGTH];
@@ -24,20 +21,6 @@ int main(int argc, char *argv[])
         strncpy(nome_arq_operacoes, argv[1], MAX_FILENAME_LENGTH);
         strncpy(nome_arq_saida, argv[2], MAX_FILENAME_LENGTH);
     }
-
-    /*
-
-         while (fgets(linha,1000,arq_entrada))
-                {
-                    palavra = strtok (linha, separador); //considera qquer caractere n�o alfab�tico como separador
-                    while (palavra != NULL)
-                    {
-                        fprintf(saida,"%s ", strlwr(palavra)); //strlwr � a fun��o que converte palavras para min�sculo
-                        palavra = strtok (NULL, separador);
-                    }
-                }
-
-    */
 
     FILE *arq_entrada;
     if ((arq_entrada = fopen(nome_arq_entrada, "r")) == NULL)
@@ -110,9 +93,6 @@ int main(int argc, char *argv[])
         palavra = strtok(linha, ' ');
         nodo = consulta(arv_AVL, palavra);
         //nodo->frequencia
-
-
-
 
     fclose(arq_operacoes);
     fclose(arq_saida);
