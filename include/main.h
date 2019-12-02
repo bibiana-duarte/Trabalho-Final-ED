@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "../include/avl.h"
 #include "../include/abp.h"
 

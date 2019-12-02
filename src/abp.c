@@ -1,6 +1,6 @@
 #include "../include/abp.h"
 
-TnodoABP *insere_arvore(TnodoABP *a, char palavra)
+TnodoABP *insere_ABP(TnodoABP *a, char palavra)
 {
     if (a == NULL)
     {
@@ -11,9 +11,9 @@ TnodoABP *insere_arvore(TnodoABP *a, char palavra)
         return a;
     }
     else if (strcmp(palavra, a->palavra) < 0)
-        a->esq = insere_arvore(a->esq, palavra);
+        a->esq = insere_ABP(a->esq, palavra);
     else if (strcmp(palavra, a->palavra) > 0)
-        a->dir = insere_arvore(a->dir, palavra);
+        a->dir = insere_ABP(a->dir, palavra);
     return a;
 }
 

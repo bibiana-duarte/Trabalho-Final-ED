@@ -7,15 +7,19 @@
 	<string.h>
 	<stdlib.h>
 
-1575320230 source:e:\documents\github\trabalho-final-ed\src\main.c
-	<stdio.h>
-	"../include/avl.h"
+1575322029 source:e:\documents\github\trabalho-final-ed\src\main.c
+	"../include/main.h"
+
+1575322114 source:e:\documents\github\trabalho-final-ed\src\abp.c
 	"../include/abp.h"
 
-1575320230 source:e:\documents\github\trabalho-final-ed\src\abp.c
-	"../include/abp.h"
-
-1575315630 e:\documents\github\trabalho-final-ed\include\abp.h
+1575322086 e:\documents\github\trabalho-final-ed\include\abp.h
 	<string.h>
 	<stdlib.h>
+
+1575321837 e:\documents\github\trabalho-final-ed\include\main.h
+	<stdio.h>
+	<ctype.h>
+	"../include/avl.h"
+	"../include/abp.h"
 

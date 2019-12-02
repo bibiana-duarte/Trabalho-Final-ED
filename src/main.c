@@ -4,12 +4,9 @@ int main(int argc, char *argv[])
 {
     //char separador[]= {" ,.&*%\?!;/-'@\"$#=><()][}{:\n\t"};
     // char linha[1000];
-    TnodoABP *arv,*c;
-    arv = NULL;
+    TnodoAVL *arv_AVL = (TnodoAVL *)NULL;
+    TnodoABP *arv_ABP = (TnodoABP *)NULL;
 
-    FILE *arq_entrada;
-    FILE *arq_operacoes;
-    FILE *arq_saida;
     char nome_arq_entrada[MAX_FILENAME_LENGTH];
     char nome_arq_operacoes[MAX_FILENAME_LENGTH];
     char nome_arq_saida[MAX_FILENAME_LENGTH];
@@ -28,6 +25,10 @@ int main(int argc, char *argv[])
         strncpy(nome_arq_operacoes, argv[1], MAX_FILENAME_LENGTH);
         strncpy(nome_arq_saida, argv[2], MAX_FILENAME_LENGTH);
     }
+
+    FILE *arq_entrada;
+    FILE *arq_operacoes;
+    FILE *arq_saida;
     if ((arq_entrada = fopen(nome_arq_entrada, "r")) == NULL)
         return ERROR;
     if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
@@ -54,14 +55,14 @@ int main(int argc, char *argv[])
         char linha[MAX_STRING_LENGTH];
         fgets(linha, MAX_STRING_LENGTH, arq_entrada); // Lê uma linha do arquivo
 
-        char palavra[MAX_STRING_LENGTH] = strtok(frase, " "); // Pega a primeira palavra da linha
+        char *palavra = strtok(linha, " "); // Pega a primeira palavra da linha
         while (palavra != NULL) // Enquanto for possível pegar novas palavras válidas da linha
         {
             for (int letra = 0; letra < strlen(palavra); letra++) // Torna minúscula a palavra
                 palavra[letra] = tolower(palavra[letra]);
 
             int balanceada = 1;
-            insere_AVL(arv, palavra, &balanceada); // Insere a palavra na árvore AVL
+            insere_AVL(arv_AVL, palavra, &balanceada); // Insere a palavra na árvore AVL
 
             palavra = strtok(NULL, " "); // Pega a próxima palavra da linha
         }
