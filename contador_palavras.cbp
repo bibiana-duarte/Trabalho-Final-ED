@@ -31,6 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/abp.h" />
+		<Unit filename="include/avl.h" />
+		<Unit filename="src/abp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/avl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />

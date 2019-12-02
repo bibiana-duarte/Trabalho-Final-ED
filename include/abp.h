@@ -1,5 +1,8 @@
+#include <string.h>
+#include <stdlib.h>
 
-struct nodoABP{
+struct nodoABP
+{
         char palavra;
         int frequencia;
         struct TnodoABP *esq;
@@ -8,7 +11,7 @@ struct nodoABP{
 
 typedef struct nodoABP TnodoABP;
 
-TnodoABP* insereArvore(TnodoABP *a, char palavra);
-int alturaABP (TnodoABP *a);
-int conta_nodosABP(TnodoABP *a);
-TnodoABP* consultaABP(TnodoABP *a, char palavra[]);
+TnodoABP *insere_arvore(TnodoABP *a, char palavra);
+int altura_ABP(TnodoABP *a);
+int conta_nodos_ABP(TnodoABP *a);
+TnodoABP *consulta_ABP(TnodoABP *a, char palavra[]);
