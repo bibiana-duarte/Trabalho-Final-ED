@@ -43,10 +43,10 @@ int conta_nodosABP(TnodoABP *a)
     int cont = 0;
 
     if(a==NULL)
-        return cont++;
+        return 0;
     else
     {
-        cont = 1 + conta_nodos(a->dir) + conta_nodos(a->esq);
+        cont = 1 + conta_nodosABP(a->dir) + conta_nodosABP(a->esq);
     }
 
 }
@@ -58,7 +58,7 @@ TnodoABP* consultaABP(TnodoABP *a, char palavra[])
     while (a != NULL)
     {
 
-        if ((strcmp(a->palavra,palavra) == 0 )
+        if ((strcmp(a->palavra,palavra)) == 0 )
         {
             return a;     //achou então retorna o ponteiro para o nodo
         }
