@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "avl.h"
-#include "contador_palavras.h"
+#include "../include/avl.h"
+#include "../include/contador_palavras.h"
 #define COMPARACOES 0
 #define ROTACOES 0
 
