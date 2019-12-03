@@ -1,4 +1,8 @@
-que59para21a79gauchescos1
+que - 59
+para - 21
+a - 79
+gauchescos - 1
+
  - 2
 ... - 3
 ...

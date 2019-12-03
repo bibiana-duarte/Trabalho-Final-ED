@@ -60,16 +60,12 @@ int main(int argc, char *argv[])
 
     fclose(arq_entrada);
 
-    if(arv_ABP == NULL)
-        printf("Vazia");
-
-
-    TnodoABP *c;
-    char p[20];
-    printf("Palavra: ");
-    gets(p);
-    c = consulta_ABP(arv_ABP,p);
-    printf("%d\n",c->frequencia);
+    //TnodoABP *c;
+    //char p[20];
+    //printf("Palavra: ");
+    //gets(p);
+   // c = consulta_ABP(arv_ABP,p);
+   // printf("%d\n",c->frequencia);
 
 
 
@@ -167,9 +163,9 @@ int main(int argc, char *argv[])
 
             nodo1 = consulta_ABP(arv_ABP,pal);
 
-            fprintf(arq_saida, "%s",pal);
+            fprintf(arq_saida, "%s -",pal);
 
-            fprintf(arq_saida, "%d",nodo1->frequencia);
+            fprintf(arq_saida, " %d\n",nodo1->frequencia);
 
 
             strtok(NULL,"\n");
