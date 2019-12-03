@@ -87,14 +87,11 @@ int main(int argc, char *argv[])
 
     //Funciona até aqui
 
-    if(operacao == "C")
+    if(operacao[0] == 'C')
     {
 
-        inic = strtok(linha_op," ");
-        strtok(NULL, " ");
-        fim = strtok(linha_op," ");
-
-
+        inic = strtok(NULL," ");
+        fim = strtok(NULL," ");
     }
     else
     {
