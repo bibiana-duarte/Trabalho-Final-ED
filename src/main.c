@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 
     char *operacao,*inic,*fim;
     char linha_op[50];
-    char *pal;
+    char *palav;
     TnodoABP *nodo1;
 
     fgets(linha_op, 50, arq_operacoes);
@@ -99,14 +99,16 @@ int main(int argc, char *argv[])
     else
     {
 
-        pal = strtok(linha_op," ");
-        pal = strtok(NULL," ");
-        pal = strtok(linha_op, " ");
-        puts(operacao);
+      //  palav = strtok(linha_op," ");
+      //  puts(palav);
+        palav = strtok(NULL," ");
+         puts(palav);
+        palav = strtok(linha_op, " ");
+        puts(palav);
 
 
-        nodo1 = consulta_ABP(arv_ABP,pal);
-        fprintf(arq_saida, "%s",pal);
+        nodo1 = consulta_ABP(arv_ABP,palav);
+        fprintf(arq_saida, "%s",palav);
         fprintf(arq_saida, "%d",nodo1->frequencia);
     }
 
