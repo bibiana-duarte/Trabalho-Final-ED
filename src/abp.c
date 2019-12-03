@@ -10,12 +10,15 @@ TnodoABP *insere_ABP(TnodoABP *a, char palavra[])
         a->dir = NULL;
         a->frequencia = 1;
     }
-    else if (strcmp(palavra, a->palavra) < 0)
+    else if (strcmp(palavra, a->palavra) < 0){
         a->esq = insere_ABP(a->esq, palavra);
-    else if (strcmp(palavra, a->palavra) > 0)
+     }
+    else if (strcmp(palavra, a->palavra) > 0){
         a->dir = insere_ABP(a->dir, palavra);
-    else
+    }
+    else{
         (a->frequencia)++;
+    }
     return a;
 }
 
@@ -52,11 +55,12 @@ TnodoABP *consulta_ABP(TnodoABP *a, char palavra[])
 {
     while (a != NULL)
     {
-        if ((strcmp(a->palavra,palavra)) == 0)
+        if (strcmp(a->palavra,palavra) == 0)
         {
+
             return a; //achou então retorna o ponteiro para o nodo
         }
-        if (strcmp(a->palavra, palavra) < 0)
+        if (strcmp(palavra, a->palavra) < 0)
             a = a->esq;
         else
             a = a->dir;

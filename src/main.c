@@ -42,28 +42,31 @@ int main(int argc, char *argv[])
                 palavra[letra] = tolower(palavra[letra]);
 
             int balanceada = 1;
-
+            // puts(palavra);
             arv_AVL = insere_AVL(arv_AVL, palavra, &balanceada); // Insere a palavra na árvore AVL
-            arv_ABP = insere_ABP(arv_ABP, palavra); // Insere a palavra na árvore ABP
 
+            arv_ABP = insere_ABP(arv_ABP, palavra); // Insere a palavra na árvore ABP
+            // puts(palavra);
             palavra = strtok(NULL, " "); // Pega a próxima palavra da linha
+
+
         }
     }
 
     fclose(arq_entrada);
 
-    int n = 1;
-
     if(arv_ABP == NULL)
         printf("Vazia");
 
+
     TnodoABP *c;
     char p[20];
-    puts("Palavra: ");
+    printf("Palavra: ");
     gets(p);
-
     c = consulta_ABP(arv_ABP,p);
-    printf("F: %d",c->frequencia);
+    printf("%d\n",c->frequencia);
+
+
 
     FILE *arq_operacoes;
     if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
@@ -73,40 +76,43 @@ int main(int argc, char *argv[])
     if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
         return ERROR;
 
-    fgets(linha, 1000, arq_operacoes)
-    operacao = strtok(linha,' ');
-    strtok (NULL,linha);
 
-    if(operacao == 'C')
+    char *operacao,*inic,*fim;
+    char linha_op[50];
+    char *pal;
+    TnodoABP *nodo1;
+
+    fgets(linha_op, 50, arq_operacoes);
+    operacao = strtok(linha_op," ");
+
+    //Funciona até aqui
+
+    if(operacao == "C")
     {
-        inic = strtok (linha,' ');
-        strtok(NULL, ,linha);
-        fim = inic = strtok (linha,' ');
+
+        inic = strtok(linha_op," ");
+        strtok(NULL, " ");
+        fim = strtok(linha_op," ");
+
+
     }
     else
     {
-        strtok(NULL, linha);
-        palavra = strtok(linha, ' ');
-        nodo = consulta(arv_AVL, palavra);
-        //nodo->frequencia
+
+        pal = strtok(linha_op," ");
+        pal = strtok(NULL," ");
+        pal = strtok(linha_op, " ");
+        puts(operacao);
+
+
+        nodo1 = consulta_ABP(arv_ABP,pal);
+        fprintf(arq_saida, "%s",pal);
+        fprintf(arq_saida, "%d",nodo1->frequencia);
     }
+
+
 
     fclose(arq_operacoes);
     fclose(arq_saida);
-
-    /*
-        fgets(linha , 100 ,arq_operacoes)
-        operacao = strtok(linha,' ');
-
-        if(operacao == 'C')
-            inic = strtok (NULL,linha);
-        fim = strtok(NULL, ,linha);
-
-        if(operacao == 'F')
-            palavra = strtok(NULL, linhas);
-        nodo = consulta(xxx, palavra);
-        //nodo->frequencia
-
-    */
     return SUCCESS;
 }

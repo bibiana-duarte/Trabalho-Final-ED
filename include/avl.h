@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#define COMP_AVL  0
+#define ROT_AVL 0
 
 struct nodoAVL
 {
