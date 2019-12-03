@@ -196,10 +196,31 @@ TnodoAVL *caso2(TnodoAVL *arv, int *ok)
     return arv;
 }
 
+TnodoAVL* consulta_AVL(TnodoAVL *a, char palavra[] )
+{
+
+    while (a != NULL)
+    {
+
+        if (strcmp(a->palavra,palavra) == 0)
+        {
+
+            return a;     //achou então retorna o ponteiro para o nodo
+        }
+
+        if (strcmp(a->palavra, palavra) < 0)
+
+            a = a->esq;
+        else
+            a = a->dir;
+    }
+    return NULL; //se não achou
+}
+
 TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok)
 {
 
-    if (a == NULL) //Chegou no fim da árvore, insere o nodo
+    if (consulta_AVL(a,palavra) == NULL) //Chegou no fim da árvore, insere o nodo
     {
 
         a = (TnodoAVL *)malloc(sizeof(TnodoAVL));
@@ -261,23 +282,5 @@ TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok)
 }
 
 
-TnodoAVL* consulta_AVL(TnodoAVL *a, char palavra[] )
-{
 
-    while (a != NULL)
-    {
 
-        if (strcmp(a->palavra,palavra) == 0)
-        {
-
-            return a;     //achou então retorna o ponteiro para o nodo
-        }
-
-        if (strcmp(a->palavra, palavra) < 0)
-
-            a = a->esq;
-        else
-            a = a->dir;
-    }
-    return NULL; //se não achou
-}

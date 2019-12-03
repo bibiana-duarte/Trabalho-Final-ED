@@ -2,6 +2,8 @@
 #include <ctype.h>
 #include "../include/avl.h"
 #include "../include/abp.h"
+#include <locale.h>
+#include <time.h>
 
 #define COMPARACOES 0
 #define ROTACOES 0
@@ -12,15 +14,27 @@
 
 
 
-void contador_ABP(int x, int y, TnodoABP *a){
+//char* strtok2
+//char* strtok21(char *linha, *char separadores)
 
-if(a->frequencia <= y || a->frequencia >= x )
-    printf("%s - %d", a->palavra,a->frequencia);
-    contador_ABP(x,y,a->dir);
-    contador_ABP(x,y,a->esq);
+char* limpa(char *p)
+{
+    int i;
 
-
+    for(i=0; i<strlen(p); i++)
+    {
+        if((p[i] < 48) || (p[i]>172))
+            p[i] = p[i+1];
+    }
+return p;
 }
 
+/*
+void le_op(char *linha){
+
+while()
+
+}
+*/
 
 

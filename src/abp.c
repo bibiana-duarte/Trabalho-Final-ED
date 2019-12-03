@@ -2,6 +2,8 @@
 
 TnodoABP *insere_ABP(TnodoABP *a, char palavra[])
 {
+    // TnodoABP *raiz = a;
+
     if (a == NULL)
     {
         a = (TnodoABP *)malloc(sizeof(TnodoABP));
@@ -11,10 +13,10 @@ TnodoABP *insere_ABP(TnodoABP *a, char palavra[])
         a->frequencia = 1;
     }
     else if (strcmp(palavra, a->palavra) < 0){
-        a->esq = insere_ABP(a->esq, palavra);
+        a->dir = insere_ABP(a->dir, palavra);
      }
     else if (strcmp(palavra, a->palavra) > 0){
-        a->dir = insere_ABP(a->dir, palavra);
+        a->esq = insere_ABP(a->esq, palavra);
     }
     else{
         (a->frequencia)++;
@@ -51,7 +53,7 @@ int conta_nodos_ABP(TnodoABP *a)
     }
 }
 
-TnodoABP *consulta_ABP(TnodoABP *a, char palavra[])
+TnodoABP *consulta_ABP(TnodoABP *a, char *palavra)
 {
     while (a != NULL)
     {
@@ -61,9 +63,14 @@ TnodoABP *consulta_ABP(TnodoABP *a, char palavra[])
             return a; //achou então retorna o ponteiro para o nodo
         }
         if (strcmp(palavra, a->palavra) < 0)
-            a = a->esq;
-        else
             a = a->dir;
+        else
+            a = a->esq;
     }
     return NULL; //se não achou
 }
+
+
+
+
+

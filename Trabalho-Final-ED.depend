@@ -23,7 +23,7 @@
 	"../include/avl.h"
 	"../include/abp.h"
 
-1575372347 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
+1575370083 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
 
 1575371721 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
@@ -45,5 +45,83 @@
 	<stdlib.h>
 
 1575365187 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\abp.c
+	"../include/abp.h"
+
+1575403631 source:x:\downloads\trabalho-final-ed-master\trabalho-final-ed-master\src\abp.c
+	"../include/abp.h"
+
+1575403631 x:\downloads\trabalho-final-ed-master\trabalho-final-ed-master\include\abp.h
+	<string.h>
+	<stdlib.h>
+
+1575391862 source:x:\downloads\trabalho-final-ed-master\trabalho-final-ed-master\src\avl.c
+	"../include/avl.h"
+
+1575361232 x:\downloads\trabalho-final-ed-master\trabalho-final-ed-master\include\avl.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1575404046 source:x:\downloads\trabalho-final-ed-master\trabalho-final-ed-master\src\main.c
+	"../include/main.h"
+
+1575403699 x:\downloads\trabalho-final-ed-master\trabalho-final-ed-master\include\main.h
+	<stdio.h>
+	<ctype.h>
+	"../include/avl.h"
+	"../include/abp.h"
+	<locale.h>
+	<time.h>
+
+1575403631 source:\\homes\bdmendes\downloads\trabalho-final-ed-master\trabalho-final-ed-master\src\abp.c
+	"../include/abp.h"
+
+1575403631 \\homes\bdmendes\downloads\trabalho-final-ed-master\trabalho-final-ed-master\include\abp.h
+	<string.h>
+	<stdlib.h>
+
+1575391862 source:\\homes\bdmendes\downloads\trabalho-final-ed-master\trabalho-final-ed-master\src\avl.c
+	"../include/avl.h"
+
+1575361232 \\homes\bdmendes\downloads\trabalho-final-ed-master\trabalho-final-ed-master\include\avl.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1575402776 source:\\homes\bdmendes\downloads\trabalho-final-ed-master\trabalho-final-ed-master\src\main.c
+	"../include/main.h"
+
+1575402991 \\homes\bdmendes\downloads\trabalho-final-ed-master\trabalho-final-ed-master\include\main.h
+	<stdio.h>
+	<ctype.h>
+	"../include/avl.h"
+	"../include/abp.h"
+	<locale.h>
+	<time.h>
+
+1575391864 source:c:\users\t-gamer\desktop\t_final\src\avl.c
+	"../include/avl.h"
+
+1575361232 c:\users\t-gamer\desktop\t_final\include\avl.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1575404048 source:c:\users\t-gamer\desktop\t_final\src\main.c
+	"../include/main.h"
+
+1575403700 c:\users\t-gamer\desktop\t_final\include\main.h
+	<stdio.h>
+	<ctype.h>
+	"../include/avl.h"
+	"../include/abp.h"
+	<locale.h>
+	<time.h>
+
+1575403632 c:\users\t-gamer\desktop\t_final\include\abp.h
+	<string.h>
+	<stdlib.h>
+
+1575403632 source:c:\users\t-gamer\desktop\t_final\src\abp.c
 	"../include/abp.h"
 
