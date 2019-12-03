@@ -129,8 +129,8 @@ int main(int argc, char *argv[])
                 if(a->frequencia <= y && a->frequencia >= x )
                 {
 
-                    fprintf(arq_saida, "%s",a->palavra);
-                    fprintf(arq_saida, "%d",a->frequencia);
+                    fprintf(arq_saida, "%s - ",a->palavra);
+                    fprintf(arq_saida, "%d\n",a->frequencia);
 
                     //puts(a->palavra);
                     //printf("%d",a->frequencia);
