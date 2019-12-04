@@ -26,19 +26,19 @@
 	<locale.h>
 	<time.h>
 
-1575470991 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
+1575474046 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
 
-1575470980 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
+1575474314 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 
-1575470149 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
+1575471919 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
 	"../include/main.h"
 	<windows.h>
 
-1575470289 c:\users\t-gamer\desktop\trabalho-final-ed\include\main.h
+1575474046 c:\users\t-gamer\desktop\trabalho-final-ed\include\main.h
 	<stdio.h>
 	<ctype.h>
 	"../include/avl.h"
@@ -46,12 +46,12 @@
 	<locale.h>
 	<time.h>
 
-1575423084 c:\users\t-gamer\desktop\trabalho-final-ed\include\abp.h
+1575472426 c:\users\t-gamer\desktop\trabalho-final-ed\include\abp.h
 	<string.h>
 	<stdlib.h>
 	<stdio.h>
 
-1575421566 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\abp.c
+1575474046 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\abp.c
 	"../include/abp.h"
 
 1575403631 source:x:\downloads\trabalho-final-ed-master\trabalho-final-ed-master\src\abp.c

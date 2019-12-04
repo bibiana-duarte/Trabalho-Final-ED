@@ -84,9 +84,8 @@ int main(int argc, char *argv[])
         int n_nodos = conta_nodos_ABP(arv_ABP);
         fprintf(arq_saida, "**********ESTATISTICAS DA ABP *************\nNumero de nodos %d\n",n_nodos);
         int altura = altura_ABP(arv_ABP);
-        //int *maior=arv_ABP->FB;
-        //fprintf(arq_saida, "Balanceamento: %d \n\n",fator_balanceamento2(arv_ABP,maior));
-
+        int *maior=arv_ABP->FB;
+        fprintf(arq_saida, "Balanceamento: %d \n\n",fator_balanceamento2(arv_ABP,maior));
         fprintf(arq_saida,"Altura: %d\n*************************************************************\n",altura);
 
 
@@ -100,7 +99,7 @@ int main(int argc, char *argv[])
                 fprintf(arq_saida,"***************************************************************************\n%c ",operacao[0]);
                 inic = strtok(NULL," "); //Pega o conteudo da linha até o espaço
                 fim = strtok(NULL," ");
-                inic=limpa(inic);//Retira caracteres especiais(espaço,ponto , virgulas e etc)
+                inic=limpa(inic);//Retira caracteres especiais(espaço,ponto, virgulas e etc)
                 fim=limpa(fim);
                 ninic=atoi(inic);//Converte char em int
                 fprintf(arq_saida, "%d  ",ninic);
@@ -115,9 +114,9 @@ int main(int argc, char *argv[])
             {
                 fprintf(arq_saida, "\n%c ",operacao[0]);
                 pal = strtok(NULL, " ");
-                pal = limpa(pal);
+                pal = limpa(pal); //Retira caracteres especiais
                 TnodoABP *nodo1;
-                nodo1 = consulta_ABP(arv_ABP,pal);
+                nodo1 = consulta_ABP(arv_ABP,pal); // Retorna o nodo da palavra procurada
                 fprintf(arq_saida, "%s -",pal);
                 fprintf(arq_saida, " %d\n",nodo1->frequencia);
                 strtok(NULL,"\n");
@@ -151,9 +150,9 @@ int main(int argc, char *argv[])
                 fprintf(arq_saida,"***************************************************************************\n%c ",operacao[0]);
                 inic = strtok(NULL," ");
                 fim = strtok(NULL," ");
-                inic=limpa(inic);
+                inic=limpa(inic); //Retira caracteres especiais
                 fim=limpa(fim);
-                ninic=atoi(inic);
+                ninic=atoi(inic); // Conversão de char para int
                 fprintf(arq_saida, "%d ",ninic);
                 nfim=atoi(fim);
                 fprintf(arq_saida, "%d  \n\n",nfim);
@@ -168,7 +167,7 @@ int main(int argc, char *argv[])
                 pal = strtok(NULL, " ");
                 pal = limpa(pal);
                 TnodoAVL *nodo2;
-                nodo2 = consulta_AVL(arv_AVL,pal);
+                nodo2 = consulta_AVL(arv_AVL,pal); // Retorna o nodo com palavra desejada
                 fprintf(arq_saida, "%s -",pal);
                 fprintf(arq_saida, " %d\n",nodo2->frequencia);
                 strtok(NULL,"\n");

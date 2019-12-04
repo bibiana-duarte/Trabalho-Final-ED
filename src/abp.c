@@ -2,8 +2,6 @@
 
 TnodoABP *insere_ABP(TnodoABP *a, char palavra[])
 {
-    // TnodoABP *raiz = a;
-
     if (a == NULL)
     {
         a = (TnodoABP *)malloc(sizeof(TnodoABP));
@@ -12,11 +10,11 @@ TnodoABP *insere_ABP(TnodoABP *a, char palavra[])
         a->dir = NULL;
         a->frequencia = 1;
     }
-    else if (strcmp(palavra, a->palavra) < 0)
+    else if (strcmp(palavra, a->palavra) < 0) //Se palavra menor
     {
-        a->dir = insere_ABP(a->dir, palavra);
+        a->dir = insere_ABP(a->dir, palavra); //
     }
-    else if (strcmp(palavra, a->palavra) > 0)
+    else if (strcmp(palavra, a->palavra) > 0) //Se palavra menor
     {
         a->esq = insere_ABP(a->esq, palavra);
     }
@@ -31,13 +29,13 @@ int altura_ABP(TnodoABP *a)
 {
     int altEsq, altDir;
 
-    if (a == NULL)
+    if (a == NULL)// Se nodo vazio retorna 0
         return 0;
     else
     {
-        altEsq = altura_ABP(a->esq);
+        altEsq = altura_ABP(a->esq); // Calcula altura das subarvores
         altDir = altura_ABP(a->dir);
-        if (altEsq > altDir)
+        if (altEsq > altDir) // Encontra qual subarvore tem maior altura e acrescenta 1
             return (1 + altEsq);
         else
             return (1 + altDir);
@@ -47,7 +45,7 @@ int altura_ABP(TnodoABP *a)
 int conta_nodos_ABP(TnodoABP *a)
 {
 
-    if (a == NULL)
+    if (a == NULL)//Se nodo vazio retorna 0
         return 0;
     else
     {
@@ -70,7 +68,7 @@ TnodoABP *consulta_ABP(TnodoABP *a, char *palavra)
         else
             a = a->esq;
     }
-    return NULL; //se não achou
+    return NULL; //Retorna NULL caso não encontrar
 }
 
 
@@ -80,10 +78,10 @@ void contador_ABP(int x, int y, TnodoABP *a,FILE *arq)
     if(a == NULL)
         return;
 
-    if(a->frequencia <= y && a->frequencia >= x )
+    if(a->frequencia <= y && a->frequencia >= x )//Se frequencia maior igual a y e menor igual a y
     {
 
-        fprintf(arq, "%s - ",a->palavra);
+        fprintf(arq, "%s - ",a->palavra); // Escreve a palavra e a frequencia do arquivo de saida
         fprintf(arq, "%d\n",a->frequencia);
 
     }
@@ -99,16 +97,16 @@ int FB_ABP (TnodoABP *a)
         return 0;
 
 
-    a->FB = altura_ABP(a->esq) - altura_ABP(a->dir);
+    a->FB = altura_ABP(a->esq) - altura_ABP(a->dir); //Calcula fator de balanceamneto do nodo
 
     FB_ABP(a->esq);
     FB_ABP(a->dir);
 }
 
-int* fator_balanceamento2(TnodoABP *a, int *maior) // Fator balncemanto da árvore
+int* fator_balanceamento2(TnodoABP *a, int *maior) // Fator balancemanto da árvore
 {
 
-    if (a == NULL)
+    if (a == NULL) // Se nodd vazio retorna 0
         return 0;
 
     if (abs(a->FB) > abs(maior))

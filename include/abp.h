@@ -6,6 +6,7 @@ struct nodoABP
 {
         char palavra[100];
         int frequencia;
+        int FB;
         struct nodoABP *esq;
         struct nodoABP *dir;
 };

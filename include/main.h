@@ -9,7 +9,7 @@
 #define ERROR -1
 #define MAX_STRING_LENGTH 1000
 
-
+// Função que retira todos os caracteres especiais da string
 char* limpa(char *p)
 {
     int i;
