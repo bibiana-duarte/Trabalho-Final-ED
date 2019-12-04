@@ -120,45 +120,49 @@ int main(int argc, char *argv[])
 
     }
 
-    if(opcao == 2)
-        while(!feof(arq_operacoes))
+    if(opcao == 2){
+
+    char *pal2;
+    int n_nodos = conta_nodos_AVL(arv_AVL);
+    fprintf(arq_saida, "**********ESTATISTICAS DA AVL *************\nNumero de nodos %d\n",n_nodos);
+    int alt = altura(arv_AVL);
+    fprintf(arq_saida,"Altura: %d\n***********************************************\n",alt);
+
+    while(!feof(arq_operacoes))
+    {
+
+        fgets(linha_op, 50, arq_operacoes);
+        operacao = strtok(linha_op," ");
+
+        if(operacao[0] == 'C')
         {
-
-            int n_nodos = conta_nodos_AVL(arv_AVL);
-            fprintf(arq_saida, "**********ESTATISTICAS DA AVL *************\nNumero de nodos %d\n",n_nodos);
-            int alt = altura(arv_AVL);
-            fprintf(arq_saida,"Altura: %d\n*************************************************************\n",alt);
-
-            fgets(linha_op, 50, arq_operacoes);
-            operacao = strtok(linha_op," ");
-
-            if(operacao[0] == 'C')
-            {
-                inic = strtok(NULL," ");
-                fim = strtok(NULL," ");
-                inic=limpa(inic);
-                fim=limpa(fim);
-                ninic=atoi(inic);
-                nfim=atoi(fim);
-                contador_AVL(ninic, nfim , arv_AVL,arq_saida);
-                strtok(NULL,"\n");
-                operacao = strtok(NULL," ");
-
-            }
-            else
-            {
-                pal = strtok(NULL, " ");
-                pal = limpa(pal);
-                TnodoAVL *nodo1;
-                nodo1 = consulta_AVL(arv_ABP,pal);
-                fprintf(arq_saida, "%s -",pal);
-                fprintf(arq_saida, " %d\n",nodo1->frequencia);
-                strtok(NULL,"\n");
-                operacao = strtok(NULL," ");
-
-            }
+            inic = strtok(NULL," ");
+            fim = strtok(NULL," ");
+            inic=limpa(inic);
+            fim=limpa(fim);
+            ninic=atoi(inic);
+            nfim=atoi(fim);
+            contador_AVL(ninic, nfim , arv_AVL,arq_saida);
+            strtok(NULL,"\n");
+            operacao = strtok(NULL," ");
 
         }
+        else
+        {
+            pal2 = strtok(NULL, " ");
+            pal2 = limpa(pal2);
+            TnodoAVL *nodo2;
+            nodo2 = consulta_AVL(arv_ABP,pal2);
+            fprintf(arq_saida, "%s -",pal2);
+            fprintf(arq_saida, " %d\n",nodo2->frequencia);
+            strtok(NULL,"\n");
+            operacao = strtok(NULL," ");
+
+        }
+
+    }
+
+    }
 
     //float miliseconds = (float)(end - start) / CLOCKS_PER_SEC * 1000000; //calcula o tempo decorrido
     //fprintf(arq_saida, "Tempo: %f", miliseconds);
