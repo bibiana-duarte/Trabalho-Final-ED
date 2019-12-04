@@ -3,6 +3,7 @@ void contador_ABP(int x, int y, TnodoABP *a);
 int main(int argc, char *argv[])
 {
     setlocale(LC_ALL,"portuguese");
+    clock_t start, end; //para contar o tempo decorrido
 
     char nome_arq_entrada[MAX_FILENAME_LENGTH];
     char nome_arq_operacoes[MAX_FILENAME_LENGTH];
@@ -34,6 +35,7 @@ int main(int argc, char *argv[])
 
     while (!feof(arq_entrada)) // Enquanto não ler todo o arquivo
     {
+        start = clock(); //inicia a contagem do tempo
         char linha[MAX_STRING_LENGTH];
         fgets(linha, MAX_STRING_LENGTH, arq_entrada); // Lê uma linha do arquivo
 
@@ -76,6 +78,11 @@ int main(int argc, char *argv[])
     FILE *arq_saida;
     if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
         return ERROR;
+
+    int n_nodos = conta_nodos_ABP(arv_ABP);
+    fprintf(arq_saida, "**********ESTATISTICAS DA ABP *************\nNumero de nodos %d\n",n_nodos);
+    int altura = altura_ABP(arv_ABP);
+    fprintf(arq_saida,"Altura: %d\n*************************************************************\n",altura);
 
 
     char *operacao,*inic,*fim;
@@ -174,8 +181,8 @@ int main(int argc, char *argv[])
         }
 
     }
-
-
+    float miliseconds = (float)(end - start) / CLOCKS_PER_SEC * 1000000; //calcula o tempo decorrido
+    fprintf(arq_saida, "Tempo: %f", miliseconds);
     fclose(arq_operacoes);
     fclose(arq_saida);
     return SUCCESS;
