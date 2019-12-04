@@ -93,7 +93,7 @@ TnodoAVL *rotacao_direita(TnodoAVL *n)
     aux->dir = n;
     n->FB = 0;
     n = aux;
-    ROTACOES++;
+    //ROTACOES++;
     return n;
 }
 
@@ -106,7 +106,7 @@ TnodoAVL *rotacao_esquerda(TnodoAVL *n)
     aux->esq = n;
     n->FB = 0;
     n = aux;
-    ROTACOES++;
+   // ROTACOES++;
     return aux;
 }
 
@@ -130,8 +130,8 @@ TnodoAVL *rotacao_dupla_direita(TnodoAVL *n)
     else
         aux1->FB = 0;
     n = aux2;
-    ROTACOES++;
-    ROTACOES++;
+   // ROTACOES++;
+    //ROTACOES++;
     return n;
 }
 
@@ -154,8 +154,8 @@ TnodoAVL *rotacao_dupla_esquerda(TnodoAVL *n)
     else
         aux1->FB = 0;
     n = aux2;
-    ROTACOES++;
-    ROTACOES++;
+   // ROTACOES++;
+//    ROTACOES++;
     return n;
 }
 
@@ -167,14 +167,12 @@ TnodoAVL *caso1(TnodoAVL *arv, int *ok)
     if (aux->FB == 1)
     {
         arv = rotacao_direita(arv);
-        //  ROT_AVL++;
 
     }
     else
     {
         arv = rotacao_dupla_direita(arv);
-        // ROT_AVL++;
-        //  ROT_AVL++;
+
 
 
 
@@ -192,15 +190,11 @@ TnodoAVL *caso2(TnodoAVL *arv, int *ok)
 
     aux = arv->dir;
     if (aux->FB == -1)
-    {
         arv = rotacao_esquerda(arv);
-        // ROT_AVL++;
-    }
+
     else
     {
         arv = rotacao_dupla_esquerda(arv);
-        //ROT_AVL++;
-        //ROT_AVL++;
 
     }
     arv->FB = 0;

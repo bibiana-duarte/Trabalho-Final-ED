@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
             int n_nodos = conta_nodos_AVL(arv_AVL);
             fprintf(arq_saida, "**********ESTATISTICAS DA AVL *************\nNumero de nodos %d\n",n_nodos);
             int alt = height(arv_AVL);
-            fprintf(arq_saida, "Rotacoes: %d \n",ROTACOES);
+          //  fprintf(arq_saida, "Rotacoes: %d \n",ROTACOES);
             int  fb = fator_balanceamento(arv_AVL);
             fprintf(arq_saida, "Fator de Balanceamento: %d \n",fb);
             fprintf(arq_saida,"Altura: %d\n*************************************************************\n",alt);
