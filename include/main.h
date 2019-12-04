@@ -13,10 +13,6 @@
 #define MAX_STRING_LENGTH 1000
 
 
-
-//char* strtok2
-//char* strtok21(char *linha, *char separadores)
-
 char* limpa(char *p)
 {
     int i;
@@ -29,12 +25,5 @@ char* limpa(char *p)
 return p;
 }
 
-/*
-void le_op(char *linha){
-
-while()
-
-}
-*/
 
 

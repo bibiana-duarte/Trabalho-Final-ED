@@ -38,9 +38,7 @@ int main(int argc, char *argv[])
         start = clock(); //inicia a contagem do tempo
         char linha[MAX_STRING_LENGTH];
         fgets(linha, MAX_STRING_LENGTH, arq_entrada); // Lê uma linha do arquivo
-
         char *palavra = strtok(linha,separador); // Pega a primeira palavra da linha
-        // char *palavra = strtok(linha, " ");
         int balanceada = 1;
         while (palavra != NULL) // Enquanto for possível pegar novas palavras válidas da linha
         {
@@ -48,8 +46,6 @@ int main(int argc, char *argv[])
             for (letra = 0; letra < strlen(palavra); letra++) // Torna minúscula a palavra
                 palavra[letra] = tolower(palavra[letra]);
 
-
-            // puts(palavra);
             arv_AVL = insere_AVL(arv_AVL, palavra, &balanceada); // Insere a palavra na árvore AVL
 
             arv_ABP = insere_ABP(arv_ABP, palavra); // Insere a palavra na árvore ABP
@@ -61,15 +57,6 @@ int main(int argc, char *argv[])
     }
 
     fclose(arq_entrada);
-
-    //TnodoABP *c;
-    //char p[20];
-    //printf("Palavra: ");
-    //gets(p);
-   // c = consulta_ABP(arv_ABP,p);
-   // printf("%d\n",c->frequencia);
-
-
 
     FILE *arq_operacoes;
     if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
@@ -89,14 +76,6 @@ int main(int argc, char *argv[])
     int ninic, nfim;
     char linha_op[50];
     char *pal;
-    TnodoABP *nodo1;
-
-    //fgets(linha_op, 50, arq_operacoes);
-    //operacao = strtok(linha_op," ");
-
-    //Funciona até aqui
-
-
     while(!feof(arq_operacoes))
     {
         fgets(linha_op, 50, arq_operacoes);
@@ -104,23 +83,14 @@ int main(int argc, char *argv[])
 
         if(operacao[0] == 'C')
         {
-            printf("C\n");
-
-
-            // scanf("%[0123456789] %[0123456789]", &inic, &fim);
             inic = strtok(NULL," ");
             fim = strtok(NULL," ");
             puts(inic);
             puts(fim);
             inic=limpa(inic);
             fim=limpa(fim);
-
-
-
             ninic=atoi(inic);
             nfim=atoi(fim);
-
-
            ////////////////////////////////////////////////////
 
             void contador_ABP(int x, int y, TnodoABP *a)
@@ -135,9 +105,6 @@ int main(int argc, char *argv[])
                     fprintf(arq_saida, "%s - ",a->palavra);
                     fprintf(arq_saida, "%d\n",a->frequencia);
 
-                    //puts(a->palavra);
-                    //printf("%d",a->frequencia);
-
                 }
                 contador_ABP(x,y,a->dir);
                 contador_ABP(x,y,a->esq);
@@ -147,34 +114,20 @@ int main(int argc, char *argv[])
             contador_ABP(ninic, nfim , arv_ABP);
             /////////////////////////////////////////////////////
 
-
-
             strtok(NULL,"\n");
             operacao = strtok(NULL," ");
-
 
         }
         else
         {
-
-            //pal = strtok(linha_op," ");
-
             pal = strtok(NULL, " ");
             pal = limpa(pal);
             puts(operacao);
             puts(pal);
-
-            // char *testebug;
-            //printf("colocoque aqui");
-            //gets(testebug);
-
+            TnodoABP *nodo1;
             nodo1 = consulta_ABP(arv_ABP,pal);
-
             fprintf(arq_saida, "%s -",pal);
-
             fprintf(arq_saida, " %d\n",nodo1->frequencia);
-
-
             strtok(NULL,"\n");
             operacao = strtok(NULL," ");
 
