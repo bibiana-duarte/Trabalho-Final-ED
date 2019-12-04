@@ -71,6 +71,23 @@ TnodoABP *consulta_ABP(TnodoABP *a, char *palavra)
 }
 
 
+ void contador_ABP(int x, int y, TnodoABP *a,FILE *arq)
+            {
 
+                if(a == NULL)
+                    return;
+
+                if(a->frequencia <= y && a->frequencia >= x )
+                {
+
+                    fprintf(arq, "%s - ",a->palavra);
+                    fprintf(arq, "%d\n",a->frequencia);
+
+                }
+                contador_ABP(x,y,a->dir,arq);
+                contador_ABP(x,y,a->esq,arq);
+
+
+            }
 
 

@@ -1,5 +1,5 @@
 #include "../include/main.h"
-void contador_ABP(int x, int y, TnodoABP *a);
+//void contador_ABP(int x, int y, TnodoABP *a);
 int main(int argc, char *argv[])
 {
     setlocale(LC_ALL,"portuguese");
@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
             nfim=atoi(fim);
            ////////////////////////////////////////////////////
 
-            void contador_ABP(int x, int y, TnodoABP *a)
+           /* void contador_ABP(int x, int y, TnodoABP *a)
             {
 
                 if(a == NULL)
@@ -110,8 +110,8 @@ int main(int argc, char *argv[])
                 contador_ABP(x,y,a->esq);
 
 
-            }
-            contador_ABP(ninic, nfim , arv_ABP);
+            } */
+            contador_ABP(ninic, nfim , arv_ABP,arq_saida);
             /////////////////////////////////////////////////////
 
             strtok(NULL,"\n");
@@ -134,8 +134,8 @@ int main(int argc, char *argv[])
         }
 
     }
-    float miliseconds = (float)(end - start) / CLOCKS_PER_SEC * 1000000; //calcula o tempo decorrido
-    fprintf(arq_saida, "Tempo: %f", miliseconds);
+    //float miliseconds = (float)(end - start) / CLOCKS_PER_SEC * 1000000; //calcula o tempo decorrido
+    //fprintf(arq_saida, "Tempo: %f", miliseconds);
     fclose(arq_operacoes);
     fclose(arq_saida);
     return SUCCESS;

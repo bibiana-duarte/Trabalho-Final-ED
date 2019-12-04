@@ -281,6 +281,27 @@ TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok)
     return a;
 }
 
+void contador_AVL(int x, int y, TnodoAVL *a,FILE *arq)
+            {
+
+                if(a == NULL)
+                    return;
+
+                if(a->frequencia <= y && a->frequencia >= x )
+                {
+
+                    fprintf(arq, "%s - ",a->palavra);
+                    fprintf(arq, "%d\n",a->frequencia);
+
+                }
+                contador_AVL(x,y,a->dir,arq);
+                contador_AVL(x,y,a->esq,arq);
+
+
+            }
+
+
+
 
 
 

@@ -31,10 +31,10 @@
 	<string.h>
 	<stdlib.h>
 
-1575419027 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
+1575421727 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
 	"../include/main.h"
 
-1575403700 c:\users\t-gamer\desktop\trabalho-final-ed\include\main.h
+1575421135 c:\users\t-gamer\desktop\trabalho-final-ed\include\main.h
 	<stdio.h>
 	<ctype.h>
 	"../include/avl.h"
@@ -42,7 +42,7 @@
 	<locale.h>
 	<time.h>
 
-1575403632 c:\users\t-gamer\desktop\trabalho-final-ed\include\abp.h
+1575421566 c:\users\t-gamer\desktop\trabalho-final-ed\include\abp.h
 	<string.h>
 	<stdlib.h>
 
