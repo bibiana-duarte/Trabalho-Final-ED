@@ -66,74 +66,100 @@ int main(int argc, char *argv[])
     if ((arq_saida = fopen(nome_arq_saida, "w")) == NULL)
         return ERROR;
 
-    int n_nodos = conta_nodos_ABP(arv_ABP);
-    fprintf(arq_saida, "**********ESTATISTICAS DA ABP *************\nNumero de nodos %d\n",n_nodos);
-    int altura = altura_ABP(arv_ABP);
-    fprintf(arq_saida,"Altura: %d\n*************************************************************\n",altura);
-
 
     char *operacao,*inic,*fim;
-    int ninic, nfim;
+    int ninic, nfim,opcao;
     char linha_op[50];
     char *pal;
-    while(!feof(arq_operacoes))
+    printf("1-ABP\n2-AVL\n");
+    scanf("%d",&opcao);
+    if(opcao == 1)
     {
-        fgets(linha_op, 50, arq_operacoes);
-        operacao = strtok(linha_op," ");
+        int n_nodos = conta_nodos_ABP(arv_ABP);
+        fprintf(arq_saida, "**********ESTATISTICAS DA ABP *************\nNumero de nodos %d\n",n_nodos);
+        int altura = altura_ABP(arv_ABP);
+        fprintf(arq_saida,"Altura: %d\n*************************************************************\n",altura);
 
-        if(operacao[0] == 'C')
+
+        while(!feof(arq_operacoes))
         {
-            inic = strtok(NULL," ");
-            fim = strtok(NULL," ");
-            puts(inic);
-            puts(fim);
-            inic=limpa(inic);
-            fim=limpa(fim);
-            ninic=atoi(inic);
-            nfim=atoi(fim);
-           ////////////////////////////////////////////////////
+            fgets(linha_op, 50, arq_operacoes);
+            operacao = strtok(linha_op," ");
 
-           /* void contador_ABP(int x, int y, TnodoABP *a)
+            if(operacao[0] == 'C')
             {
+                inic = strtok(NULL," ");
+                fim = strtok(NULL," ");
+                //puts(inic);
+                //puts(fim);
+                inic=limpa(inic);
+                fim=limpa(fim);
+                ninic=atoi(inic);
+                nfim=atoi(fim);
+                contador_ABP(ninic, nfim , arv_ABP,arq_saida);
+                strtok(NULL,"\n");
+                operacao = strtok(NULL," ");
 
-                if(a == NULL)
-                    return;
+            }
+            else
+            {
+                pal = strtok(NULL, " ");
+                pal = limpa(pal);
+                // puts(operacao);
+                // puts(pal);
+                TnodoABP *nodo1;
+                nodo1 = consulta_ABP(arv_ABP,pal);
+                fprintf(arq_saida, "%s -",pal);
+                fprintf(arq_saida, " %d\n",nodo1->frequencia);
+                strtok(NULL,"\n");
+                operacao = strtok(NULL," ");
 
-                if(a->frequencia <= y && a->frequencia >= x )
-                {
-
-                    fprintf(arq_saida, "%s - ",a->palavra);
-                    fprintf(arq_saida, "%d\n",a->frequencia);
-
-                }
-                contador_ABP(x,y,a->dir);
-                contador_ABP(x,y,a->esq);
-
-
-            } */
-            contador_ABP(ninic, nfim , arv_ABP,arq_saida);
-            /////////////////////////////////////////////////////
-
-            strtok(NULL,"\n");
-            operacao = strtok(NULL," ");
-
-        }
-        else
-        {
-            pal = strtok(NULL, " ");
-            pal = limpa(pal);
-            puts(operacao);
-            puts(pal);
-            TnodoABP *nodo1;
-            nodo1 = consulta_ABP(arv_ABP,pal);
-            fprintf(arq_saida, "%s -",pal);
-            fprintf(arq_saida, " %d\n",nodo1->frequencia);
-            strtok(NULL,"\n");
-            operacao = strtok(NULL," ");
+            }
 
         }
 
     }
+
+    if(opcao == 2)
+        while(!feof(arq_operacoes))
+        {
+
+            int n_nodos = conta_nodos_AVL(arv_AVL);
+            fprintf(arq_saida, "**********ESTATISTICAS DA AVL *************\nNumero de nodos %d\n",n_nodos);
+            int alt = altura(arv_AVL);
+            fprintf(arq_saida,"Altura: %d\n*************************************************************\n",alt);
+
+            fgets(linha_op, 50, arq_operacoes);
+            operacao = strtok(linha_op," ");
+
+            if(operacao[0] == 'C')
+            {
+                inic = strtok(NULL," ");
+                fim = strtok(NULL," ");
+                inic=limpa(inic);
+                fim=limpa(fim);
+                ninic=atoi(inic);
+                nfim=atoi(fim);
+                contador_AVL(ninic, nfim , arv_AVL,arq_saida);
+                strtok(NULL,"\n");
+                operacao = strtok(NULL," ");
+
+            }
+            else
+            {
+                pal = strtok(NULL, " ");
+                pal = limpa(pal);
+                TnodoAVL *nodo1;
+                nodo1 = consulta_AVL(arv_ABP,pal);
+                fprintf(arq_saida, "%s -",pal);
+                fprintf(arq_saida, " %d\n",nodo1->frequencia);
+                strtok(NULL,"\n");
+                operacao = strtok(NULL," ");
+
+            }
+
+        }
+
     //float miliseconds = (float)(end - start) / CLOCKS_PER_SEC * 1000000; //calcula o tempo decorrido
     //fprintf(arq_saida, "Tempo: %f", miliseconds);
     fclose(arq_operacoes);
