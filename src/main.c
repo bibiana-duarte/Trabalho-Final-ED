@@ -4,7 +4,6 @@
 int main(int argc, char *argv[])
 {
     setlocale(LC_ALL,"portuguese");
-    //clock_t start, end; //para contar o tempo decorrido
     LARGE_INTEGER frequency;
     LARGE_INTEGER start;
     LARGE_INTEGER end;
@@ -12,9 +11,6 @@ int main(int argc, char *argv[])
 
     QueryPerformanceFrequency(&frequency);
     QueryPerformanceCounter(&start);
-
-
-
 
     char nome_arq_entrada[MAX_FILENAME_LENGTH];
     char nome_arq_operacoes[MAX_FILENAME_LENGTH];
@@ -51,7 +47,6 @@ int main(int argc, char *argv[])
         char linha[MAX_STRING_LENGTH];
         fgets(linha, MAX_STRING_LENGTH, arq_entrada); // Lê uma linha do arquivo
         char *palavra = strtok(linha,separador); // Pega a primeira palavra da linha
-        //int balanceada = 1;
         while (palavra != NULL) // Enquanto for possível pegar novas palavras válidas da linha
         {
             int letra;
@@ -65,9 +60,9 @@ int main(int argc, char *argv[])
 
         }
     }
-//desenha(arv_AVL,0);
-    fclose(arq_entrada);
 
+    fclose(arq_entrada);
+    //Abre os arquivos de operações e de saída
     FILE *arq_operacoes;
     if ((arq_operacoes = fopen(nome_arq_operacoes, "r")) == NULL)
         return ERROR;
@@ -89,22 +84,25 @@ int main(int argc, char *argv[])
         int n_nodos = conta_nodos_ABP(arv_ABP);
         fprintf(arq_saida, "**********ESTATISTICAS DA ABP *************\nNumero de nodos %d\n",n_nodos);
         int altura = altura_ABP(arv_ABP);
+        //int *maior=arv_ABP->FB;
+        //fprintf(arq_saida, "Balanceamento: %d \n\n",fator_balanceamento2(arv_ABP,maior));
+
         fprintf(arq_saida,"Altura: %d\n*************************************************************\n",altura);
 
 
-        while(!feof(arq_operacoes))
+        while(!feof(arq_operacoes))//Enquanto não chegar no fim do arquivo
         {
-            fgets(linha_op, 50, arq_operacoes);
-            operacao = strtok(linha_op," ");
+            fgets(linha_op, 50, arq_operacoes);//Pega uma linha e guarda em linha_op
+            operacao = strtok(linha_op," ");// Pega o conteudo da linh até o espaço
 
             if(operacao[0] == 'C')
             {
                 fprintf(arq_saida,"***************************************************************************\n%c ",operacao[0]);
-                inic = strtok(NULL," ");
+                inic = strtok(NULL," "); //Pega o conteudo da linha até o espaço
                 fim = strtok(NULL," ");
-                inic=limpa(inic);
+                inic=limpa(inic);//Retira caracteres especiais(espaço,ponto , virgulas e etc)
                 fim=limpa(fim);
-                ninic=atoi(inic);
+                ninic=atoi(inic);//Converte char em int
                 fprintf(arq_saida, "%d  ",ninic);
                 nfim=atoi(fim);
                 fprintf(arq_saida, "%d \n\n",nfim);
@@ -131,15 +129,15 @@ int main(int argc, char *argv[])
 
     }
 
-    if(opcao == 2){
+    if(opcao == 2)
+    {
 
-            int n_nodos = conta_nodos_AVL(arv_AVL);
-            fprintf(arq_saida, "**********ESTATISTICAS DA AVL *************\nNumero de nodos %d\n",n_nodos);
-            int alt = height(arv_AVL);
-          //  fprintf(arq_saida, "Rotacoes: %d \n",ROTACOES);
-            int  fb = fator_balanceamento(arv_AVL);
-            fprintf(arq_saida, "Fator de Balanceamento: %d \n",fb);
-            fprintf(arq_saida,"Altura: %d\n*************************************************************\n",alt);
+        int n_nodos = conta_nodos_AVL(arv_AVL);
+        fprintf(arq_saida, "**********ESTATISTICAS DA AVL *************\nNumero de nodos %d\n",n_nodos);
+        int alt = height(arv_AVL);
+        int *maior=arv_AVL->FB;
+        fprintf(arq_saida, "Balanceamento: %d \n\n",fator_balanceamento(arv_AVL,maior));
+        fprintf(arq_saida,"Altura: %d\n*************************************************************\n",alt);
 
 
 
@@ -184,9 +182,7 @@ int main(int argc, char *argv[])
     QueryPerformanceCounter(&end);
     interval = (double) (end.QuadPart - start.QuadPart) / frequency.QuadPart;
     fprintf(arq_saida, "\nTempo: %f s", interval);
-    //float miliseconds = (float)(end - start) / CLOCKS_PER_SEC * 1000000; //calcula o tempo decorrido
-    //fprintf(arq_saida, "Tempo: %f", miliseconds);
-    fclose(arq_operacoes);
-    fclose(arq_saida);
+    fclose(arq_operacoes); //Fecha arquivo de operações
+    fclose(arq_saida); // Fecha arquivo de saída
     return SUCCESS;
 }

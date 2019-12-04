@@ -1,5 +1,5 @@
 #include "../include/avl.h"
-#define ROTACOES 0
+
 
 //#include "../include/main.h"
 
@@ -38,29 +38,20 @@ int calcula_fator(TnodoAVL *arv)
     return (altura(arv->esq) - altura(arv->dir));
 }
 
-int fator_balanceamento(TnodoAVL *a) // Fator balncemanto da árvore
+int* fator_balanceamento(TnodoAVL *a, int *maior) // Fator balncemanto da árvore
 {
-    int fb_dir, fb_esq;
-    int maior;
 
     if (a == NULL)
         return 0;
 
-    fb_dir = fator_balanceamento(a->dir);
-    fb_esq = fator_balanceamento(a->esq);
-    maior = a->FB;
+    if (abs(a->FB) > abs(maior))
+        maior = a->FB;
 
-    if (maior < fb_dir)
-        maior = fb_dir;
+    fator_balanceamento(a->dir, maior);
+    fator_balanceamento(a->esq, maior);
 
-    if (maior < fb_esq)
-    {
-        //COMP_AVL++;
-        maior = fb_esq;
-    }
     return maior;
 }
-
 
 void desenha(TnodoAVL *a, int nivel)
 {
@@ -93,7 +84,6 @@ TnodoAVL *rotacao_direita(TnodoAVL *n)
     aux->dir = n;
     n->FB = 0;
     n = aux;
-    //ROTACOES++;
     return n;
 }
 
@@ -106,7 +96,6 @@ TnodoAVL *rotacao_esquerda(TnodoAVL *n)
     aux->esq = n;
     n->FB = 0;
     n = aux;
-   // ROTACOES++;
     return aux;
 }
 
@@ -128,10 +117,10 @@ TnodoAVL *rotacao_dupla_direita(TnodoAVL *n)
     if (aux2->FB == -1)
         aux1->FB = 1;
     else
+    {
         aux1->FB = 0;
-    n = aux2;
-   // ROTACOES++;
-    //ROTACOES++;
+        n = aux2;
+    }
     return n;
 }
 
@@ -152,19 +141,19 @@ TnodoAVL *rotacao_dupla_esquerda(TnodoAVL *n)
     if (aux2->FB == 1)
         aux1->FB = -1;
     else
+    {
         aux1->FB = 0;
-    n = aux2;
-   // ROTACOES++;
-//    ROTACOES++;
+        n = aux2;
+    }
     return n;
 }
 
 TnodoAVL *caso1(TnodoAVL *arv, int *ok)
 {
     TnodoAVL *aux;
-
     aux = arv->esq;
-    if (aux->FB == 1)
+
+    if (aux->FB == 1)// Se filho esquerdo tiver fator 1
     {
         arv = rotacao_direita(arv);
 
@@ -172,10 +161,6 @@ TnodoAVL *caso1(TnodoAVL *arv, int *ok)
     else
     {
         arv = rotacao_dupla_direita(arv);
-
-
-
-
     }
 
     arv->FB = 0;
@@ -210,15 +195,14 @@ TnodoAVL* consulta_AVL(TnodoAVL *a, char *palavra)
     {
         if (strcmp(a->palavra,palavra) == 0)
         {
-
-            return a; //achou então retorna o ponteiro para o nodo
+            return a; //achou então retorna o nodo
         }
-        if (strcmp(palavra, a->palavra) < 0)
+        if (strcmp(palavra, a->palavra) < 0) // Se a palavra for menor
             a = a->esq;
-        else
+        else                                //Se palavra maior
             a = a->dir;
     }
-    return NULL; //se não achou
+    return NULL; //Retorna NULL se não encontrou
 }
 
 
@@ -226,7 +210,7 @@ TnodoAVL* consulta_AVL(TnodoAVL *a, char *palavra)
 TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok)
 {
 
-    if (consulta_AVL(a,palavra) == NULL) //Chegou no fim da árvore, insere o nodo
+    if (consulta_AVL(a,palavra) == NULL) //Se consulta = NULL  chegou ao fim da arvore
     {
 
         a = (TnodoAVL *)malloc(sizeof(TnodoAVL));
@@ -237,7 +221,7 @@ TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok)
         a->frequencia = 1;
         *ok = 1;
     }
-    else if ((strcmp(palavra, a->palavra)) < 0)
+    else if ((strcmp(palavra, a->palavra)) < 0) // Se palavra menor
     {
         a->dir = insere_AVL(a->dir, palavra, ok);
         if (*ok)
@@ -408,9 +392,10 @@ TnodoAVL* insert(TnodoAVL* nodoAVL, char *palavra)
     else if (strcmp(palavra, nodoAVL->palavra) > 0)
         nodoAVL->dir = insert(nodoAVL->dir, palavra);
     else // se já tiver a palavra, nao precisa balancear
-       {
-       (nodoAVL->frequencia)++;
-    return nodoAVL;}
+    {
+        (nodoAVL->frequencia)++;
+        return nodoAVL;
+    }
 
     /* 2. Update height of this ancestor nodoAVL */
     nodoAVL->height = 1 + max(height(nodoAVL->esq),

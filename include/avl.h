@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define COMP_AVL  0
-#define ROT_AVL 0
+
+int ROTACOES = 0;
 
 struct nodoAVL
 {
@@ -19,7 +19,7 @@ TnodoAVL *inicializa_AVL();
 int conta_nodos_AVL(TnodoAVL *a);
 int altura(TnodoAVL *a);
 int calcula_fator(TnodoAVL *arv);
-int fator_balanceamento(TnodoAVL *a);
+int* fator_balanceamento(TnodoAVL *a, int *maior);
 //void desenha(TnodoAVL *a, int nivel);
 TnodoAVL *rotacao_direita(TnodoAVL *n);
 TnodoAVL *rotacao_esquerda(TnodoAVL *n);

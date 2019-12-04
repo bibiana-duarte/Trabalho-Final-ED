@@ -26,19 +26,19 @@
 	<locale.h>
 	<time.h>
 
-1575467932 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
+1575470991 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
 
-1575457521 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
+1575470980 c:\users\t-gamer\desktop\trabalho-final-ed\include\avl.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 
-1575465836 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
+1575470149 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\main.c
 	"../include/main.h"
 	<windows.h>
 
-1575421135 c:\users\t-gamer\desktop\trabalho-final-ed\include\main.h
+1575470289 c:\users\t-gamer\desktop\trabalho-final-ed\include\main.h
 	<stdio.h>
 	<ctype.h>
 	"../include/avl.h"

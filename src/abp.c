@@ -12,13 +12,16 @@ TnodoABP *insere_ABP(TnodoABP *a, char palavra[])
         a->dir = NULL;
         a->frequencia = 1;
     }
-    else if (strcmp(palavra, a->palavra) < 0){
+    else if (strcmp(palavra, a->palavra) < 0)
+    {
         a->dir = insere_ABP(a->dir, palavra);
-     }
-    else if (strcmp(palavra, a->palavra) > 0){
+    }
+    else if (strcmp(palavra, a->palavra) > 0)
+    {
         a->esq = insere_ABP(a->esq, palavra);
     }
-    else{
+    else
+    {
         (a->frequencia)++;
     }
     return a;
@@ -71,23 +74,50 @@ TnodoABP *consulta_ABP(TnodoABP *a, char *palavra)
 }
 
 
- void contador_ABP(int x, int y, TnodoABP *a,FILE *arq)
-            {
+void contador_ABP(int x, int y, TnodoABP *a,FILE *arq)
+{
 
-                if(a == NULL)
-                    return;
+    if(a == NULL)
+        return;
 
-                if(a->frequencia <= y && a->frequencia >= x )
-                {
+    if(a->frequencia <= y && a->frequencia >= x )
+    {
 
-                    fprintf(arq, "%s - ",a->palavra);
-                    fprintf(arq, "%d\n",a->frequencia);
+        fprintf(arq, "%s - ",a->palavra);
+        fprintf(arq, "%d\n",a->frequencia);
 
-                }
-                contador_ABP(x,y,a->dir,arq);
-                contador_ABP(x,y,a->esq,arq);
+    }
+    contador_ABP(x,y,a->dir,arq);
+    contador_ABP(x,y,a->esq,arq);
 
 
-            }
+}
+
+int FB_ABP (TnodoABP *a)
+{
+    if(a==NULL)
+        return 0;
+
+
+    a->FB = altura_ABP(a->esq) - altura_ABP(a->dir);
+
+    FB_ABP(a->esq);
+    FB_ABP(a->dir);
+}
+
+int* fator_balanceamento2(TnodoABP *a, int *maior) // Fator balncemanto da árvore
+{
+
+    if (a == NULL)
+        return 0;
+
+    if (abs(a->FB) > abs(maior))
+        maior = a->FB;
+
+    fator_balanceamento2(a->dir, maior);
+    fator_balanceamento2(a->esq, maior);
+
+    return maior;
+}
 
 

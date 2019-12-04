@@ -17,3 +17,5 @@ int altura_ABP(TnodoABP *a);
 int conta_nodos_ABP(TnodoABP *a);
 TnodoABP *consulta_ABP(TnodoABP *a, char palavra[]);
 void contador_ABP(int x, int y, TnodoABP *a,FILE *arq);
+int* fator_balanceamento2(TnodoABP *a, int *maior);
+int FB_ABP (TnodoABP *a);
