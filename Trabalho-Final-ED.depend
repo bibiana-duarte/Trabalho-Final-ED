@@ -2,26 +2,29 @@
 1575330656 source:e:\documents\github\trabalho-final-ed\src\abp.c
 	"../include/abp.h"
 
-1575323684 e:\documents\github\trabalho-final-ed\include\abp.h
+1575422992 e:\documents\github\trabalho-final-ed\include\abp.h
 	<string.h>
 	<stdlib.h>
+	<stdio.h>
 
-1575330685 source:e:\documents\github\trabalho-final-ed\src\avl.c
+1575422906 source:e:\documents\github\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
 
-1575323628 e:\documents\github\trabalho-final-ed\include\avl.h
+1575373522 e:\documents\github\trabalho-final-ed\include\avl.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
 
-1575324764 source:e:\documents\github\trabalho-final-ed\src\main.c
+1575422906 source:e:\documents\github\trabalho-final-ed\src\main.c
 	"../include/main.h"
 
-1575323440 e:\documents\github\trabalho-final-ed\include\main.h
+1575422568 e:\documents\github\trabalho-final-ed\include\main.h
 	<stdio.h>
 	<ctype.h>
 	"../include/avl.h"
 	"../include/abp.h"
+	<locale.h>
+	<time.h>
 
 1575391864 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
