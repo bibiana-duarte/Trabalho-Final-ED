@@ -1,5 +1,7 @@
 #include "../include/avl.h"
+#define ROTACOES 0
 
+//#include "../include/main.h"
 
 
 
@@ -91,7 +93,7 @@ TnodoAVL *rotacao_direita(TnodoAVL *n)
     aux->dir = n;
     n->FB = 0;
     n = aux;
-
+    ROTACOES++;
     return n;
 }
 
@@ -104,7 +106,7 @@ TnodoAVL *rotacao_esquerda(TnodoAVL *n)
     aux->esq = n;
     n->FB = 0;
     n = aux;
-
+    ROTACOES++;
     return aux;
 }
 
@@ -128,7 +130,8 @@ TnodoAVL *rotacao_dupla_direita(TnodoAVL *n)
     else
         aux1->FB = 0;
     n = aux2;
-
+    ROTACOES++;
+    ROTACOES++;
     return n;
 }
 
@@ -151,6 +154,8 @@ TnodoAVL *rotacao_dupla_esquerda(TnodoAVL *n)
     else
         aux1->FB = 0;
     n = aux2;
+    ROTACOES++;
+    ROTACOES++;
     return n;
 }
 
@@ -204,7 +209,7 @@ TnodoAVL *caso2(TnodoAVL *arv, int *ok)
     return arv;
 }
 
-TnodoAVL* consulta_AVL(TnodoAVL *a, char palavra[] )
+TnodoAVL* consulta_AVL(TnodoAVL *a, char *palavra)
 {
 
     while (a != NULL)
@@ -215,9 +220,9 @@ TnodoAVL* consulta_AVL(TnodoAVL *a, char palavra[] )
             return a; //achou então retorna o ponteiro para o nodo
         }
         if (strcmp(palavra, a->palavra) < 0)
-            a = a->dir;
-        else
             a = a->esq;
+        else
+            a = a->dir;
     }
     return NULL; //se não achou
 }

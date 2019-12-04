@@ -99,14 +99,15 @@ int main(int argc, char *argv[])
 
             if(operacao[0] == 'C')
             {
+                fprintf(arq_saida,"***************************************************************************\n%c ",operacao[0]);
                 inic = strtok(NULL," ");
                 fim = strtok(NULL," ");
-                //puts(inic);
-                //puts(fim);
                 inic=limpa(inic);
                 fim=limpa(fim);
                 ninic=atoi(inic);
+                fprintf(arq_saida, "%d  ",ninic);
                 nfim=atoi(fim);
+                fprintf(arq_saida, "%d \n\n",nfim);
                 contador_ABP(ninic, nfim , arv_ABP,arq_saida);
                 strtok(NULL,"\n");
                 operacao = strtok(NULL," ");
@@ -114,10 +115,9 @@ int main(int argc, char *argv[])
             }
             else
             {
+                fprintf(arq_saida, "\n%c ",operacao[0]);
                 pal = strtok(NULL, " ");
                 pal = limpa(pal);
-                // puts(operacao);
-                // puts(pal);
                 TnodoABP *nodo1;
                 nodo1 = consulta_ABP(arv_ABP,pal);
                 fprintf(arq_saida, "%s -",pal);
@@ -131,59 +131,59 @@ int main(int argc, char *argv[])
 
     }
 
-    if(opcao == 2)
-        while(!feof(arq_operacoes))
-        {
+    if(opcao == 2){
 
             int n_nodos = conta_nodos_AVL(arv_AVL);
             fprintf(arq_saida, "**********ESTATISTICAS DA AVL *************\nNumero de nodos %d\n",n_nodos);
             int alt = height(arv_AVL);
+            fprintf(arq_saida, "Rotacoes: %d \n",ROTACOES);
+            int  fb = fator_balanceamento(arv_AVL);
+            fprintf(arq_saida, "Fator de Balanceamento: %d \n",fb);
             fprintf(arq_saida,"Altura: %d\n*************************************************************\n",alt);
-            //    fprintf(arq_saida, "Balanceamento: %d \n\n",balanceamento);
 
+
+
+        while(!feof(arq_operacoes))
+        {
 
             fgets(linha_op, 50, arq_operacoes);
             operacao = strtok(linha_op," ");
-
-            desenha(arv_AVL,0);
-            puts("Desenha ok");
             if(operacao[0] == 'C')
             {
-                puts("Chegou aqui");
+                fprintf(arq_saida,"***************************************************************************\n%c ",operacao[0]);
                 inic = strtok(NULL," ");
                 fim = strtok(NULL," ");
                 inic=limpa(inic);
                 fim=limpa(fim);
                 ninic=atoi(inic);
+                fprintf(arq_saida, "%d ",ninic);
                 nfim=atoi(fim);
-
-                puts("eh no contador");
+                fprintf(arq_saida, "%d  \n\n",nfim);
                 contador_AVL(ninic, nfim , arv_AVL,arq_saida);
-
-                //return;
                 strtok(NULL,"\n");
                 operacao = strtok(NULL," ");
 
             }
             else
             {
+                fprintf(arq_saida, "\n%c  ",operacao[0]);
                 pal = strtok(NULL, " ");
                 pal = limpa(pal);
-                TnodoAVL *nodo1;
-                puts("No consulta");
-                nodo1 = consulta_AVL(arv_AVL,pal);
-                puts("Consulta ok");
+                TnodoAVL *nodo2;
+                nodo2 = consulta_AVL(arv_AVL,pal);
                 fprintf(arq_saida, "%s -",pal);
-                fprintf(arq_saida, " %d\n",nodo1->frequencia);
+                fprintf(arq_saida, " %d\n",nodo2->frequencia);
                 strtok(NULL,"\n");
                 operacao = strtok(NULL," ");
 
             }
 
         }
+    }
+
     QueryPerformanceCounter(&end);
     interval = (double) (end.QuadPart - start.QuadPart) / frequency.QuadPart;
-    fprintf(arq_saida, "Tempo: %f s", interval);
+    fprintf(arq_saida, "\nTempo: %f s", interval);
     //float miliseconds = (float)(end - start) / CLOCKS_PER_SEC * 1000000; //calcula o tempo decorrido
     //fprintf(arq_saida, "Tempo: %f", miliseconds);
     fclose(arq_operacoes);
