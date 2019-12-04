@@ -131,3 +131,31 @@
 1575403632 source:c:\users\t-gamer\desktop\t_final\src\abp.c
 	"../include/abp.h"
 
+1575421566 source:c:\users\t-gamer\desktop\backup\src\abp.c
+	"../include/abp.h"
+
+1575423084 c:\users\t-gamer\desktop\backup\include\abp.h
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+
+1575457521 source:c:\users\t-gamer\desktop\backup\src\avl.c
+	"../include/avl.h"
+
+1575457521 c:\users\t-gamer\desktop\backup\include\avl.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1575459379 source:c:\users\t-gamer\desktop\backup\src\main.c
+	"../include/main.h"
+	<windows.h>
+
+1575421135 c:\users\t-gamer\desktop\backup\include\main.h
+	<stdio.h>
+	<ctype.h>
+	"../include/avl.h"
+	"../include/abp.h"
+	<locale.h>
+	<time.h>
+

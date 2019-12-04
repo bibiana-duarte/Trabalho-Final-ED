@@ -11,6 +11,7 @@ struct nodoAVL
     int frequencia;
     struct nodoAVL *esq;
     struct nodoAVL *dir;
+    int height;
 };
 typedef struct nodoAVL TnodoAVL;
 
@@ -28,3 +29,7 @@ TnodoAVL *caso1(TnodoAVL *arv, int *ok);
 TnodoAVL *caso2(TnodoAVL *arv, int *ok);
 TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok);
 //nodoAVL* consulta_AVL(nodoAVL *a, char palavra[]);
+
+
+
+TnodoAVL* insert(TnodoAVL* nodoAVL, char *palavra);
