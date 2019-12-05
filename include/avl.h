@@ -1,8 +1,10 @@
+#ifndef __AVL_H_
+#define __AVL_H_
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
-
+#include "main.h"
 
 struct nodoAVL
 {
@@ -11,25 +13,17 @@ struct nodoAVL
     int frequencia;
     struct nodoAVL *esq;
     struct nodoAVL *dir;
-    int height;
 };
 typedef struct nodoAVL TnodoAVL;
 
-TnodoAVL *inicializa_AVL();
-int conta_nodos_AVL(TnodoAVL *a);
-int altura(TnodoAVL *a);
-int calcula_fator(TnodoAVL *arv);
-int* fator_balanceamento(TnodoAVL *a, int *maior);
-void desenha(TnodoAVL *a, int nivel);
-TnodoAVL *rotacao_direita(TnodoAVL *n);
-TnodoAVL *rotacao_esquerda(TnodoAVL *n);
-TnodoAVL *rotacao_dupla_direita(TnodoAVL *n);
-TnodoAVL *rotacao_dupla_esquerda(TnodoAVL *n);
-TnodoAVL *caso1(TnodoAVL *arv, int *ok);
-TnodoAVL *caso2(TnodoAVL *arv, int *ok);
-TnodoAVL *insere_AVL(TnodoAVL *a, char palavra[], int *ok);
-//TnodoAVL* consulta_AVL(nodoAVL *a, char palavra[]);
-int max(int a, int b);
+TnodoAVL *insere_em_AVL(TnodoAVL *nodoAVL, char *palavra);
+int quantidade_de_nodos_de_AVL(TnodoAVL *a);
+int altura_de_AVL(TnodoAVL *a);
+TnodoAVL* consulta_em_AVL(TnodoAVL *a, char *palavra);
+void contador_de_AVL(int x, int y, TnodoAVL *a, FILE *arq);
+int *FB_de_AVL(TnodoAVL *a, int *maior);
+int FB_da_raiz_de_AVL(TnodoAVL *N);
+TnodoAVL *rotacao_a_esquerda(TnodoAVL *x);
+TnodoAVL *rotacao_a_direita(TnodoAVL *y);
 
-
-TnodoAVL* insert(TnodoAVL* nodoAVL, char *palavra);
+#endif

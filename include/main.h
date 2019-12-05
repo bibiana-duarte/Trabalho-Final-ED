@@ -1,26 +1,23 @@
+#ifndef __MAIN_H_
+#define __MAIN_H_
+
 #include <stdio.h>
 #include <ctype.h>
-#include "../include/avl.h"
-#include "../include/abp.h"
 #include <locale.h>
 #include <time.h>
+#include <windows.h>
+#include "avl.h"
+#include "abp.h"
+
 #define MAX_FILENAME_LENGTH 20
-#define SUCCESS 0
-#define ERROR -1
+#define SUCCESSFUL_RETURN 0
+#define ERROR_RETURN -1
 #define MAX_STRING_LENGTH 1000
+#define ABP 1
+#define AVL 2
 
-// Função que retira todos os caracteres especiais da string
-char* limpa(char *p)
-{
-    int i;
+int main(int argc, char **argv);
+char *limpa(char *p);
+int maximo(int a, int b);
 
-    for(i=0; i<strlen(p); i++)
-    {
-        if((p[i] < 48) || (p[i]>172))
-            p[i] = p[i+1];
-    }
-return p;
-}
-
-
-
+#endif

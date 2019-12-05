@@ -1,6 +1,0 @@
-F que
-F para
-F a
-F gauchescos
-C 2 10
-C 3 1000

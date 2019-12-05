@@ -1,30 +1,32 @@
 # depslib dependency file v1.0
-1575330656 source:e:\documents\github\trabalho-final-ed\src\abp.c
+1575513793 source:e:\documents\github\trabalho-final-ed\src\abp.c
 	"../include/abp.h"
 
-1575422992 e:\documents\github\trabalho-final-ed\include\abp.h
+1575513792 e:\documents\github\trabalho-final-ed\include\abp.h
 	<string.h>
 	<stdlib.h>
 	<stdio.h>
 
-1575422906 source:e:\documents\github\trabalho-final-ed\src\avl.c
+1575514055 source:e:\documents\github\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
 
-1575373522 e:\documents\github\trabalho-final-ed\include\avl.h
+1575513849 e:\documents\github\trabalho-final-ed\include\avl.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
+	"main.h"
 
-1575422906 source:e:\documents\github\trabalho-final-ed\src\main.c
+1575513865 source:e:\documents\github\trabalho-final-ed\src\main.c
 	"../include/main.h"
 
-1575422568 e:\documents\github\trabalho-final-ed\include\main.h
+1575514576 e:\documents\github\trabalho-final-ed\include\main.h
 	<stdio.h>
 	<ctype.h>
-	"../include/avl.h"
-	"../include/abp.h"
 	<locale.h>
 	<time.h>
+	<windows.h>
+	"avl.h"
+	"abp.h"
 
 1575474046 source:c:\users\t-gamer\desktop\trabalho-final-ed\src\avl.c
 	"../include/avl.h"
